@@ -3,7 +3,10 @@ package com.examly.springapp.model;
 public class JwtRequest {
 
 	 String username;
+	 
 	 String password;
+
+
 	public String getUsername() {
 		return this.username;
 	}
