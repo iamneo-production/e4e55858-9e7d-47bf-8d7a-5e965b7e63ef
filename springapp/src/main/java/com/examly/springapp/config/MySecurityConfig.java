@@ -14,7 +14,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.example.springbootproject.serviceimpl.UserDetailsServiceImpl;
+import com.examly.springapp.serviceimpl.UserDetailsServiceImpl;
 
 
 
