@@ -1,12 +1,6 @@
 package com.examly.springapp.dtoclass;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Value;
 
-@Getter
-@Data
-@Value
 public class RoleResponseDto {
 
 

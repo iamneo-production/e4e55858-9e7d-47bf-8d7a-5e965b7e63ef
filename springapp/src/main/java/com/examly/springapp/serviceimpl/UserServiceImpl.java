@@ -1,4 +1,4 @@
-package com.example.springbootproject.serviceimpl;
+package com.examly.springapp.serviceimpl;
 
 import java.util.LinkedHashSet;
 import java.util.Optional;

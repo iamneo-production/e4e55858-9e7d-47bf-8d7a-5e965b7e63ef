@@ -1,4 +1,4 @@
-package com.example.springbootproject.controller;
+package com.examly.springapp.controller;
 
 import java.util.Set;
 

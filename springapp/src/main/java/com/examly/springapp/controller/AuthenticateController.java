@@ -1,4 +1,4 @@
-package com.examly.springapp.exception.controller;
+package com.examly.springapp.controller;
 
 import java.security.Principal;
 

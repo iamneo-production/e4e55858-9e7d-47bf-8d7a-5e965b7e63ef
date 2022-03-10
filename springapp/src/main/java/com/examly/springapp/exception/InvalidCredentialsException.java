@@ -1,4 +1,4 @@
-package com.example.springbootproject.exception;
+package com.examly.springapp.exception;
 
 public class InvalidCredentialsException extends RuntimeException {
 	private static final long serialVersionUID = 1L;

@@ -8,6 +8,7 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/UserDetailsServiceImpl.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exception/DatabaseTranscationException.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/config/MySecurityConfig.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/User.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Role.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/UserController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/JwtRequest.java

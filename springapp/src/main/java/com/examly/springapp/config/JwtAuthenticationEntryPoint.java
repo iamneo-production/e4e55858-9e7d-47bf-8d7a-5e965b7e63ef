@@ -1,4 +1,4 @@
-package com.example.springbootproject.config;
+package com.examly.springapp.config;
 
 import java.io.IOException;
 

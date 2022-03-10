@@ -1,4 +1,4 @@
-package com.examly.springapp.exception.service;
+package com.examly.springapp.service;
 
 import java.util.Set;
 
