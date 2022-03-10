@@ -1,4 +1,4 @@
-package com.examly.springapp.model;
+package com.examly.springapp.enums;
 
 
 import org.springframework.security.core.GrantedAuthority;
