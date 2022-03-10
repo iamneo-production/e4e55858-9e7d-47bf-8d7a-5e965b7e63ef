@@ -57,7 +57,7 @@ public class AuthenticateController {
 		
 		try {
 			//setting up username by using mailId
-			jwtRequest.setUsername(userrepository.findUsername(jwtRequest.getUsername()));
+			jwtRequest.setUsername(userrepository.findUsername(jwtRequest.getEmail()));
 			
 			authenticate(jwtRequest.getUsername(), jwtRequest.getPassword());
 			
