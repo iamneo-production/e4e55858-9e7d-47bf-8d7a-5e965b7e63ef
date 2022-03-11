@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-//import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,6 +22,8 @@ import { FormsModule } from '@angular/forms';
 //import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './pages/login/login.component';
 // import { authInterceptorProviders } from './auth.interceptor';
 // import { SignupComponent } from './pages/signup/signup.component';
 //import { ViewacademyComponent } from './pages/user/viewacademy/viewacademy.component';
@@ -45,6 +47,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
     //LoginComponent,
     HomeComponent,
+  NavbarComponent,
+  LoginComponent,
     //AdminDashboardComponent,
     //SignupComponent,
     //ViewacademyComponent,
@@ -64,7 +68,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
   ],
   imports: [
     BrowserModule,
-    //AppRoutingModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
