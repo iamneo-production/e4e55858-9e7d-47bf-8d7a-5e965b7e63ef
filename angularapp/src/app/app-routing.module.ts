@@ -42,7 +42,7 @@ const routes: Routes = [
   
   {path:'admin',canActivate:[AdminGuard],
   children:[
-  {path:'',redirectTo:'users/3',pathMatch:'full'},
+  {path:'',redirectTo:'institutes',pathMatch:'full'},
   {path:'institutes',component:AdminacademyComponent},
   {path:'courses',component:AdmincourseComponent},
   {path:'students',component:AdminstudentComponent},
