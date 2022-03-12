@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
 
     });
     
-   console.log(this.userRoleName+"USER")
+   
     if(this.isLoggedIn){
       if(this.user.role.roleName=="ADMIN")
        this.router.navigate(['/admin'])

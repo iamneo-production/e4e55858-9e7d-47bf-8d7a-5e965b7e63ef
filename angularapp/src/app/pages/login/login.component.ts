@@ -13,7 +13,7 @@ import { UserService } from 'src/app/user.service';
 
 export class LoginComponent implements OnInit {
   loginData = {
-    username: '',
+    email: '',
     password: '',
   };
   hide=true;
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   formSubmit() {
     console.log(this.loginData);
-    if (this.loginData.username.trim() == '' || this.loginData.username == null) {
+    if (this.loginData.email.trim() == '' || this.loginData.email == null) {
       this.snack.open("Username is required !! ", '', {
         duration: 3000,
       });

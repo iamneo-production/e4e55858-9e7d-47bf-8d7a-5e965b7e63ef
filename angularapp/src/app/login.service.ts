@@ -2,26 +2,26 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, throwError, } from 'rxjs';
 
-
+ 
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
+  private url="https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io";
   public loginStatusSubject = new Subject<boolean>();
 
   constructor(private http:HttpClient) { }
 
   //current user: which id loggedin
   public getCurrentUser(){
-    return this.http.get(`http://localhost:8080/current-user`);
+    return this.http.get(`${this.url}/current-user`);
   }
 
 
   //generate token
   public generateToken(loginData:any):Observable<any>{
-    return this.http.post(`http://localhost:8080/generate-token`, loginData);
+    return this.http.post(`${this.url}/generate-token`, loginData);
   }
   
 

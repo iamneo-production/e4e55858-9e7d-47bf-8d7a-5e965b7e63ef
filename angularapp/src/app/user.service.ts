@@ -6,57 +6,57 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-
+  private baseurl="https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io";
   constructor( private http:HttpClient) { }
 
   public addUser(user:any){
-    return this.http.post(`http://localhost:8080/user/signup`,user);
+    return this.http.post(`${this.baseurl}/user/signup`,user);
 
   }
 
   public checkMail(email:string){
     console.log("calling service")
-    return this.http.get<any>(`http://localhost:8080/check-email?mail=${email}`);
+    return this.http.get<any>(`${this.baseurl}/check-email?mail=${email}`);
   }
   
 public checkUsername(username:string){
-  return this.http.get<any>(`http://localhost:8080/check-username?username=${username}`)
+  return this.http.get<any>(`${this.baseurl}/check-username?username=${username}`)
 }
 
 public checkMobileNumber(mobileno:string){
-  return this.http.get<any>(`http://localhost:8080/check-mobileno?mobileno=${mobileno}`)
+  return this.http.get<any>(`${this.baseurl}/check-mobileno?mobileno=${mobileno}`)
 }
 
 public adminRoleName(){
-  return this.http.get<any>(`http://localhost:8080/AdminRoleName`);
+  return this.http.get<any>(`${this.baseurl}/AdminRoleName`);
 }
 public userroleName(){
-  return this.http.get<any>(`http://localhost:8080/UserRoleName`);
+  return this.http.get<any>(`${this.baseurl}/UserRoleName`);
 }
 
 
 getUsers():Observable<any[]>{
     
-  return this.http.get<any[]>(`http://localhost:8080/user/all`)
+  return this.http.get<any[]>(`${this.baseurl}/user/all`)
 }
 deleteUser(userId){
   console.log(userId)
-  return this.http.delete(`http://localhost:8080/user/delete/${userId}`)
+  return this.http.delete(`${this.baseurl}/user/delete/${userId}`)
 }
 
 getUserById(userId){
   console.log(userId);
-  return this.http.get(`http://localhost:8080/user/get/${userId}`);
+  return this.http.get(`${this.baseurl}/user/get/${userId}`);
 }
 
 updateUser(userId,user){
   
-  return this.http.put(`http://localhost:8080/user/edit/${userId}`,user)
+  return this.http.put(`${this.baseurl}/user/edit/${userId}`,user)
 }
 
 updatePassword(userId,user){
   
-  return this.http.put(`http://localhost:8080/user/changepassword/${userId}`,user)
+  return this.http.put(`${this.baseurl}/user/changepassword/${userId}`,user)
 }
 
 }

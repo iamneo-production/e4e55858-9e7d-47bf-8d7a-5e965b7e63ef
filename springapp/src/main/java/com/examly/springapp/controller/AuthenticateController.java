@@ -37,7 +37,7 @@ import com.examly.springapp.enums.Message;
 import com.examly.springapp.enums.RoleName;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins="https://8081-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io")
 public class AuthenticateController {
 	
 	@Autowired

@@ -134,7 +134,14 @@ public class UserController {
 		 user.setUsername(userdto.getUsername());
 		
 		User user1=this.userservice.getUser(userId);
-		user.setPassword(user1.getPassword());
+
+		if(userdto.getPassword()==""){
+            user.setPassword(user1.getPassword());
+		}
+		else{
+			user.setPassword(this.bCryptEncoder.encode(userdto.getPassword()));
+		}
+		
 		if((user.getEmail()).equals(user1.getEmail())&&user.getMobileNumber().equals(user1.getMobileNumber())&&user.getPassword().equals(user1.getPassword())&&user.getUsername().equals(user1.getPassword())) {
 			
 	
