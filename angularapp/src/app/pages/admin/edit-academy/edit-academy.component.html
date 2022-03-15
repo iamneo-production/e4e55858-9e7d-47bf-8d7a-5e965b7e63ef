@@ -1,0 +1,43 @@
+<div class="container mt-3">
+    <form #myForm="ngForm">
+    
+        <div class="mb-3 form-group">
+            <label for="academyId" form-label>Academy Id</label>
+            <input type="text" class="form-control" name="academyId" [(ngModel)]="institute.instituteId">
+        </div>
+    
+            <div class="mb-3 form-group">
+                <label for="academyName" form-label>Academy Name</label>
+                <input type="text" class="form-control" name="academyName" [(ngModel)]="institute.instituteName">
+            </div>
+    
+            <div class="mb-3 form-group">
+                <label for="contactNumber" form-label>Contact Number</label>
+                <input type="text" class="form-control" name="contactNumber" [(ngModel)]="institute.mobile">
+            </div>
+            <div class="mb-3 form-group">
+                <label for="academyName" form-label>Email name</label>
+                <input type="text" class="form-control" name="emailname" [(ngModel)]="institute.email">
+            </div>
+            <div class="mb-3 form-group">
+                <label for="academyDescription" form-label>Academy Description</label>
+                <textarea name="academyDescription" rows="3" class="form-control" [(ngModel)]="institute.instituteDescription"></textarea>
+            </div>
+            <div class="mb-3 form-group">
+                <label for="imageUrl" form-label>Image Url</label>
+                <input type="text" class="form-control" name="imageUrl" [(ngModel)]="institute.imageUrl">
+            </div>
+            <div class="mb-3 form-group">
+                <label for="academyLocation" form-label>Academy Location</label>
+                <input type="text" class="form-control" name="academyLocation" [(ngModel)]="institute.instituteAddress">
+            </div>
+    
+            <button class="btn btn-primary" name="addAcademy" (click)="onSubmit()">Edit Academy</button>
+    </form>
+    </div>
+    
+    
+    
+    
+    
+     
