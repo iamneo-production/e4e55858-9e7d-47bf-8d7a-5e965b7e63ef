@@ -1,1 +1,18 @@
-<p>adminacademy works!</p>
+<div class="row">
+    <div class="col-lg-4 col-sm-6" *ngFor="let institute of institutes; let i=index">
+        <div class="card">
+            <div class="card-body">
+                <img src="{{institute.imageUrl}}" alt="" class="card-image-top m-5"/>
+                <div class="card-text text-center">
+                    {{institute.instituteName}}-( {{institute.instituteId}} )
+                    <p>Place:{{institute.instituteAddress}}</p>
+                </div>
+                <div class="mx-4 text-center">
+                    <button class="btn-outline-dark mx-2" (click)="editAcademy(institute.instituteId)"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                    <button class="btn-outline-dark  mx-2" (click)="deleteInstitute(institute.instituteId)"><i class="fa fa-remove" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/addAcademy" class="btn btn-primary">Add Institute</a>
+</div>

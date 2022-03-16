@@ -36,6 +36,8 @@ import { UsermanagementComponent } from './pages/admin/usermanagement/usermanage
 import { UserdataComponent } from './pages/admin/userdata/userdata.component';
 import { ChangepasswordComponent } from './pages/admin/changepassword/changepassword.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddacademyComponent } from './pages/admin/addacademy/addacademy.component';
+import { EditAcademyComponent } from './pages/admin/edit-academy/edit-academy.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     SearchComponent,
     UsermanagementComponent,
     UserdataComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    AddacademyComponent,
+    EditAcademyComponent
   ],
   imports: [
     BrowserModule,
