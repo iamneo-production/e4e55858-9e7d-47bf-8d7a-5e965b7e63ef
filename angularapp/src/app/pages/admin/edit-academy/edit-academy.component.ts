@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { InstituteData } from '../institute-data';
-import { InstitutesService } from '../institutes.service';
-
+import { InstituteService } from 'src/app/services/institute.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-edit-academy',
   templateUrl: './edit-academy.component.html',
@@ -10,23 +10,52 @@ import { InstitutesService } from '../institutes.service';
 })
 export class EditAcademyComponent implements OnInit {
 
-  constructor(private router:Router,private route:ActivatedRoute,private service:InstitutesService) { }
+  constructor(private instituteservice:InstituteService,private route:ActivatedRoute,private router:Router,private snack: MatSnackBar) { }
 
-
-  public id:any;
-  
-  
   ngOnInit(): void {
-    // this.route.paramMap.subscribe((params:ParamMap)=>{
-    //   this.id=params.get('id')
-    //   console.log(this.id)
-    // })
+    
+    this.instituteId=this.route.snapshot.params['instituteid'];
+    
+    this.getInstitute(this.instituteId);
+    
   }
+  insti={
+    instituteId:'',
+    instituteName:'',
+    mobile:'',
+    email:'vtumail',
+    instituteDescription:'',
+    imageUrl:'',
+    instituteAddress:''
+  };
+  instituteId;
   
-  institute = new InstituteData("","","","","","","")
-  
-  onSubmit(){
-      this.service.editInstitute(parseInt(this.institute.instituteId),this.institute)
+
+  getInstitute(id){
+  this.instituteservice.getInstitute(id).subscribe((data:any)=>{
+    console.log(data)
+    this.insti=data;
+    console.log(this.insti);
+  });
+  }
+
+  onSubmit() {
+    this.instituteservice.editInstitute(this.insti.instituteId,this.insti).subscribe((data:any)=>{
+      console.log(data);
+      Swal.fire('Successfully Edited !!', 'Institute Name : ' + data.instituteName, 'success');
+      this.router.navigate(['admin/institutes']);
+    },
+    (error) => {
+        
+      console.log("mes");
+      console.log(error.message)
+      //alert('Something Wrong');
+      this.snack.open(error.error.message, '', {
+        duration: 5000,
+      });
+     
+    }
+    )
   }
 
 

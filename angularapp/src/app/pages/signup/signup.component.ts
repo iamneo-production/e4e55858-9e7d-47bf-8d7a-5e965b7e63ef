@@ -94,7 +94,7 @@ formSubmit() {
       this.snack.open(error.error.message, '', {
         duration: 5000,
       });
-      this.router.navigate(['/login']);
+     
     }
   );
   //window.location.reload();

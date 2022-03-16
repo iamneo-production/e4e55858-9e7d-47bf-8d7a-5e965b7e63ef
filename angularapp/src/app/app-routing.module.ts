@@ -17,6 +17,8 @@ import { AdminrejectedapplicationsComponent } from './pages/admin/adminrejecteda
 import { UsermanagementComponent } from './pages/admin/usermanagement/usermanagement.component';
 import { UserdataComponent } from './pages/admin/userdata/userdata.component';
 import { ChangepasswordComponent } from './pages/admin/changepassword/changepassword.component';
+import { AddacademyComponent } from './pages/admin/addacademy/addacademy.component';
+import { EditAcademyComponent } from './pages/admin/edit-academy/edit-academy.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,8 @@ const routes: Routes = [
   children:[
   {path:'',redirectTo:'institutes',pathMatch:'full'},
   {path:'institutes',component:AdminacademyComponent},
+  {path:'institutes/add',component:AddacademyComponent},
+  {path:'institutes/:instituteid',component:EditAcademyComponent},
   {path:'courses',component:AdmincourseComponent},
   {path:'students',component:AdminstudentComponent},
   {path:'users',component:UsermanagementComponent},

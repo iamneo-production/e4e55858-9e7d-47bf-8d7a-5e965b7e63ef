@@ -1,4 +1,4 @@
-package com.example.springbootproject.exceptionhandler;
+package com.examly.springapp.exceptionhandler;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.example.springbootproject.dtoclass.ResponseDto;
+import com.examly.springapp.dtoclass.ResponseDto;
 
 
 @RestControllerAdvice

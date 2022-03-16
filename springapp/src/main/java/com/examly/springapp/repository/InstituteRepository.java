@@ -1,10 +1,10 @@
-package com.example.ugadmissions.repos;
+package com.examly.springapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.ugadmissions.models.InstituteModel;
+import com.examly.springapp.model.InstituteModel;
 
 @Repository
-public interface InstituteRepo extends JpaRepository<InstituteModel, Integer>{
+public interface InstituteRepository extends JpaRepository<InstituteModel, Integer>{
 }

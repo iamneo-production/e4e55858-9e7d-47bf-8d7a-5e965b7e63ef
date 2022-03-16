@@ -1,18 +1,37 @@
-<div class="row">
-    <div class="col-lg-4 col-sm-6" *ngFor="let institute of institutes; let i=index">
-        <div class="card">
-            <div class="card-body">
-                <img src="{{institute.imageUrl}}" alt="" class="card-image-top m-5"/>
-                <div class="card-text text-center">
-                    {{institute.instituteName}}-( {{institute.instituteId}} )
-                    <p>Place:{{institute.instituteAddress}}</p>
-                </div>
-                <div class="mx-4 text-center">
-                    <button class="btn-outline-dark mx-2" (click)="editAcademy(institute.instituteId)"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                    <button class="btn-outline-dark  mx-2" (click)="deleteInstitute(institute.instituteId)"><i class="fa fa-remove" aria-hidden="true"></i></button>
-                </div>
+<br/>
+<app-search></app-search>
+<button mat-raised-button color="primary" style="margin-left: 50px;" [routerLink]="'add'"><mat-icon>add_circle_outline</mat-icon>Add Institute</button>
+<br/>
+<br/>
+
+<section class="container">
+    <div class="card" *ngFor="let user of institutes| filter:searchtext ">
+        <div class="card-image">
+            
+            <img class="image" *ngIf="user.imageUrl" src="assets/college.jpg" alt="college.jpg"  />
+            <div *ngIf="!user.imageUrl">
+         
+                <img class="blurimage image"  style="filter: blur(5px);" src="assets/college.jpg" alt="college.jpg"  /><div class="center"><input type="file"/></div>
             </div>
+            </div>
+        
+        <div style="text-align: center;"><b>{{user.instituteName}}</b></div>
+        <div class="desc">
+        <p>{{user.instituteDescription}}</p></div>
+
+        <div style="margin-top: 40px;overflow:auto;">Place:{{user.instituteAddress}}</div>
+
+        <div class="set" >
+            
+            <span class="child" >rating:4.5</span>
+            <span class="child" style="padding-left: 150px;">
+            <button [routerLink]="user.instituteId" mat-icon-button style="color: #00C851;">
+                <mat-icon >mode_edit</mat-icon>
+            </button>
+            <button (click)="deleteInstitute(user.instituteId)" mat-icon-button color="warn">
+                <mat-icon>delete</mat-icon>
+            </button></span>
         </div>
     </div>
-    <a href="/addAcademy" class="btn btn-primary">Add Institute</a>
-</div>
+    
+</section>

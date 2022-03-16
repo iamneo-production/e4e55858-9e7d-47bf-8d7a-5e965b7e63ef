@@ -1,21 +1,39 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Institute } from '../institute';
-import { InstituteData } from '../institute-data';
-import { InstitutesService } from '../institutes.service';
+import { Subscription } from 'rxjs';
+import { Institute } from 'src/app/institute';
+import { InstituteService } from 'src/app/services/institute.service';
+import { SearchService } from 'src/app/search.service';
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-view-academy',
-  templateUrl: './view-academy.component.html',
-  styleUrls: ['./view-academy.component.css']
+  selector: 'adminacademy',
+  templateUrl: './adminacademy.component.html',
+  styleUrls: ['./adminacademy.component.css']
 })
-export class ViewAcademyComponent implements OnInit {
+export class AdminacademyComponent implements OnInit {
 
+  selectedFile:File =null;
+  text="";
   institutes:Institute[]=[]
-
-  constructor(private instituteService:InstitutesService,private router:Router) { }
+  sub:Subscription;
+  searchtext:any;
+  insti={
+    instituteId:'1',
+    instituteName:'',
+    mobile:'854',
+    email:'vtumail',
+    instituteDescription:'desc',
+    imageUrl:'',
+    instituteAddress:'adderess'
+  };
+  
+  constructor(private instituteService:InstituteService,private router:Router,private searchservice:SearchService,private http:HttpClient,private snack:MatSnackBar) { }
 
   ngOnInit(): void {
+    this.sub=this.searchservice.cm.subscribe(data=>this.searchtext=data);
     this.instituteService.getInstitutes().subscribe((data)=>this.institutes=data)
   }
 
@@ -29,10 +47,24 @@ export class ViewAcademyComponent implements OnInit {
 
   deleteInstitute(id:string){
       this.instituteService.deleteInstitute(parseInt(id))
-      .subscribe(res => {
-        console.log('Post deleted successfully!');
+      .subscribe((res:any)=> {
+        
+        Swal.fire('Successfully Deleted !!', res.message, 'success');
+        this.ngOnInit();
+        
+   },
+   (error) => {
+     
+     console.log("mes");
+     console.log(error.message)
+     //alert('Something Wrong');
+     Swal.fire('Deletion Unsuccess', error.error.message, 'error');
+    
    })
   }
+
+
+
 
 }
 
