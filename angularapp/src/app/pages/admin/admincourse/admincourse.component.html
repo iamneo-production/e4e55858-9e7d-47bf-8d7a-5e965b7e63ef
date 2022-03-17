@@ -1,1 +1,100 @@
-<p>admincourse works!</p>
+<div class="container">
+    <div style="margin-top: 10px;">
+      <mat-form-field appearance="standard">
+        <mat-label>Search Course</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex: ECE" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+          
+          <div id="courseName">
+            <!-- Course Name Column -->
+          <ng-container matColumnDef="courseName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.courseName}} </td>
+          </ng-container>
+          </div>
+      
+          <div id="courseDuration">
+            <!-- Course Duration Column -->
+          <ng-container matColumnDef="courseDuration">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Duration </th>
+            <td mat-cell *matCellDef="let row"> {{row.courseDuration}} </td>
+          </ng-container>
+          </div>
+      
+          <div id="courseTimming">
+            <!-- Course Start Time Column -->
+          <ng-container matColumnDef="courseStartTimming">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Start Time </th>
+            <td mat-cell *matCellDef="let row"> {{row.courseStartTimming}} </td>
+          </ng-container>
+  
+          <!-- Course End Time Column -->
+          <ng-container matColumnDef="courseEndTimming">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Course End Time </th>
+            <td mat-cell *matCellDef="let row"> {{row.courseEndTimming}} </td>
+          </ng-container>
+          </div>
+          <!-- Course End Time Column
+          <ng-container matColumnDef="courseEndTimming">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Course End Time </th>
+            <td mat-cell *matCellDef="let row"> {{row.courseEndTimming}} </td>
+          </ng-container> -->
+      
+         <div id="courseEnrolled">
+            <!-- Student Enrolled In The Course Column -->
+          <ng-container matColumnDef="courseEnrolled">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Student No </th>
+            <td mat-cell *matCellDef="let row"> {{row.courseEnrolled}} </td>
+          </ng-container>
+         </div>
+  
+         <div id="courseDescription">
+           <!-- Course Description Column -->
+          <ng-container matColumnDef="courseDescription">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Description </th>
+            <td mat-cell *matCellDef="let row"> {{row.courseDescription}} </td>
+          </ng-container>
+         </div>
+  
+         <div>
+           <!-- Action delete and edit -->
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+            <td mat-cell *matCellDef="let row"> 
+                <a routerLink="/editcourse/{{row.id}}">
+                  <button id="editCourse"  mat-icon-button color="primary">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </a>
+                  <button id="deletecourse" (click)="deleteCourse(row.id)" mat-icon-button color="warn">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+            </td>
+          </ng-container>
+         </div>
+          
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[3, 6, 9]" aria-label="Select page of users"></mat-paginator>
+      </div>
+    </div>
+  </div>
+    <div id="addCourse"
+    style="position: absolute;right:20px;bottom: 10px;">
+    <a routerLink="/addcourse">
+      <button mat-raised-button color="white"  >
+        <mat-icon>add_circle</mat-icon> Add Course</button>
+    </a>
+    </div>
+    
