@@ -1,4 +1,6 @@
+
 <br/>
+
 <app-search></app-search>
 <button mat-raised-button color="primary" style="margin-left: 50px;" [routerLink]="'add'"><mat-icon>add_circle_outline</mat-icon>Add Institute</button>
 <br/>
@@ -8,18 +10,21 @@
     <div class="card" *ngFor="let user of institutes| filter:searchtext ">
         <div class="card-image">
             
-            <img class="image" *ngIf="user.imageUrl" src="assets/college.jpg" alt="college.jpg"  />
-            <div *ngIf="!user.imageUrl">
-         
-                <img class="blurimage image"  style="filter: blur(5px);" src="assets/college.jpg" alt="college.jpg"  /><div class="center"><input type="file"/></div>
-            </div>
+            <img class="image"  src="assets/college.jpg" alt="college.jpg"  />
+      
             </div>
         
-        <div style="text-align: center;"><b>{{user.instituteName}}</b></div>
-        <div class="desc">
-        <p>{{user.instituteDescription}}</p></div>
+        <div style="margin-top: 10px; font-size: 20px;">{{user.instituteName}}</div>
+        <div class="desc" style="margin-top: 40px;">Description:
+            <p>{{user.instituteDescription}}</p></div>
 
-        <div style="margin-top: 40px;overflow:auto;">Place:{{user.instituteAddress}}</div>
+        <div style="margin-top: 60px;overflow:auto;">Place:{{user.instituteAddress}}</div>
+        <div class="set" style="margin-top: 10px;" >
+            
+            <span class="child" >Email:{{user.email}}</span>
+            <span class="child " style="padding-left: 30px;" >mobile:{{user.mobile}}</span>
+            
+        </div>
 
         <div class="set" >
             

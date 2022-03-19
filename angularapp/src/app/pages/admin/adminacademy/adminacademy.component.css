@@ -7,7 +7,7 @@
 
 .card-image{
   
-  height: 180px;
+  height: 190px;
   
   background-size: cover;
 }
@@ -20,8 +20,8 @@
 
 .card{
     background: white;
-    width: 310px;
-    height:320px;
+    width: 350px;
+    height:450px;
     margin-top: 15px;
     margin: 25px;
     border-radius: 15px;
