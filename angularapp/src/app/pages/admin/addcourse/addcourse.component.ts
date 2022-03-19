@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,Validators } from '@angular/forms';
-import { ApiService } from 'src/app/services/api.service';
+
+import { CourseService } from 'src/app/services/course.service';
 
 @Component({
   selector: 'app-addcourse',
@@ -9,38 +10,15 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class AddcourseComponent implements OnInit {
 
-  courseForm!: FormGroup;
-  open: any;
-  constructor(private formBuilder: FormBuilder, private api:ApiService) { }
+
+  constructor( private courseservice:CourseService) { }
 
   ngOnInit(): void {
-    this.courseForm = this.formBuilder.group({
-      courseName :['',Validators.required],
-      courseDuration :['',Validators.required],
-      courseStartTimming :['',Validators.required],
-      courseEndTimming :['',Validators.required],
-      courseEnrolled :['',Validators.required],
-      courseDescription :['',Validators.required],
-
-    })
-
-  }
-  addCourse(){
-    if(this.courseForm.valid){
-      this.api.postCourse(this.courseForm.value)
-      .subscribe({
-        next:(res)=>{
-          alert("Courses Added Succesfully")
-          this.courseForm.reset();
-         // this.ngOnInit();
-          
-        },
-        error:()=>{
-          alert("Error While adding the Course")
-        }
-      })
+    
 
     }
-  }
+
+  
+ 
 
 }

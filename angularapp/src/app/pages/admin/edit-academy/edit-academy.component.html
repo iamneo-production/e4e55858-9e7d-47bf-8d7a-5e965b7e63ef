@@ -5,10 +5,10 @@
                 <div class="col-md-6 offset-md-3">
                     <mat-card>
                        
-                
+                 
                         <form #signupForm="ngForm" (ngSubmit)="onSubmit(); signupForm.resetForm()">
 
-                            <!--email-->
+                            
                             <mat-form-field class="full-width" appearance="outline">
                               <mat-label>Enter Institute Id</mat-label>
                               <input [disabled]="true" id="instituteId"  class="form-control" #instituteId="ngModel" [(ngModel)]="insti.instituteId" name="instituteId"

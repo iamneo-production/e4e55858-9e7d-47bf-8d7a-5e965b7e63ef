@@ -1,4 +1,5 @@
 
+
 <div class="bootstrap-wrapper" style="margin-top: 30px;">
         <div class="container">
             <div class="row">
@@ -8,7 +9,7 @@
                 
                         <form #signupForm="ngForm" (ngSubmit)="onSubmit(); signupForm.resetForm() ">
 
-                            <!--email-->
+                            
                             <mat-form-field class="full-width" appearance="outline">
                               <mat-label>Enter Institute Id</mat-label>
                               <input (blur)="checkId()" (keyup.enter)="checkId()" id="instituteId"  class="form-control" #instituteId="ngModel" [(ngModel)]="institute.instituteId" name="instituteId"
