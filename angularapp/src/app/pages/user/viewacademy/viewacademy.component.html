@@ -1,1 +1,37 @@
-<p>viewacademy works!</p>
+
+<br/>
+
+<app-search></app-search>
+
+<br/>
+
+<section class="container">
+    <div class="card" *ngFor="let user of institutes" >
+        <div [routerLink]="user.instituteId">
+        <div class="card-image">
+            
+            <img class="image"  src="assets/college.jpg" alt="college.jpg"  />
+      
+            </div>
+        
+        <div style="margin-top: 10px; font-size: 20px;">{{user.instituteName}}</div>
+        <div class="desc" style="margin-top: 50px;">
+            <p>{{user.instituteDescription}}</p></div>
+
+        <div style="margin-top: 60px;overflow:auto;">Place:{{user.instituteAddress}}</div>
+        <div class="set" style="margin-top: 10px;" >
+            
+            <span class="child" >{{user.email}}</span>
+            <span class="child " style="padding-left: 50px;" >mobile:{{user.mobile}}</span>
+            
+        </div>
+
+        <div class="set" >
+            
+            <span class="child" >rating:4.5</span>
+            
+        </div>
+    </div>
+    </div>
+    
+</section>

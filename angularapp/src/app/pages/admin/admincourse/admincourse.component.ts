@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from 'src/app/services/course.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admincourse',
@@ -8,22 +10,36 @@ import { Component, OnInit } from '@angular/core';
 export class AdmincourseComponent implements OnInit {
   
 
+  constructor(private courseservice:CourseService) { }
+  courses;
+ ngOnInit(): void {
+   this.getCourses();
+   
+ }
 
-   constructor(   ) { 
+ getCourses(){
+   this.courseservice.getCourses().subscribe((data:any)=>{
+      this.courses=data;
+      console.log(data);
+   })
+ }
 
-    }
-
-  ngOnInit(): void {
-    
-  }
-
+ deleteCourse(courseId){
+   this.courseservice.deleteCourse(courseId)
+   .subscribe((res:any)=> {
+     
+     Swal.fire('Successfully Deleted !!', res.message, 'success');
+     this.ngOnInit();
+     
+},
+(error) => {
   
-  
-
-  
-  
+  console.log("mes");
+  console.log(error.message)
+  //alert('Something Wrong');
+  Swal.fire('Deletion Unsuccess', error.error.message, 'error');
+ 
+})
 }
 
-  
-
-
+}

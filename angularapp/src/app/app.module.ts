@@ -40,6 +40,17 @@ import { EditAcademyComponent } from './pages/admin/edit-academy/edit-academy.co
 import { AddacademyComponent } from './pages/admin/addacademy/addacademy.component';
 import { AddcourseComponent } from './pages/admin/addcourse/addcourse.component';
 import { EditcourseComponent } from './pages/admin/editcourse/editcourse.component';
+import { MatOptionModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { ViewcourseComponent } from './pages/user/viewcourse/viewcourse.component';
+import { StudentComponent } from './pages/user/student/student.component';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { Date_Formmat } from './date-format';
+import { EditadmissionComponent } from './pages/admin/editadmission/editadmission.component';
+import { CheckingadmissionComponent } from './pages/admin/checkingadmission/checkingadmission.component';
+
+
 
 @NgModule({
   declarations: [
@@ -66,7 +77,11 @@ import { EditcourseComponent } from './pages/admin/editcourse/editcourse.compone
     SearchComponent,
     UsermanagementComponent,
     UserdataComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    ViewcourseComponent,
+    StudentComponent,
+    CheckingadmissionComponent,
+    EditadmissionComponent
   ],
   imports: [
     BrowserModule,
@@ -85,8 +100,14 @@ import { EditcourseComponent } from './pages/admin/editcourse/editcourse.compone
     Ng2SearchPipeModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    MatOptionModule,
+    FormsModule,
+    MatSelectModule,
+    MatDatepickerModule,
+
   ],
-  providers: [authInterceptorProviders],
+  
+  providers: [authInterceptorProviders,{provide:MAT_DATE_FORMATS,useValue:Date_Formmat}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

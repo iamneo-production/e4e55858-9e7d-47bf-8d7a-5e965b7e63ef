@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { InstituteService } from 'src/app/services/institute.service';
 
 @Component({
   selector: 'app-viewacademy',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewacademyComponent implements OnInit {
 
-  constructor() { }
 
+  constructor(private instituteService:InstituteService,private router:Router) { }
+   institutes;
   ngOnInit(): void {
-    console.log('view academy component');
+    this.instituteService.getInstitutes().subscribe((data)=>this.institutes=data);
+   
+    
   }
 
+ 
 }
