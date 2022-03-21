@@ -27,7 +27,7 @@ import com.examly.springapp.repository.UserRepository;
 import antlr.collections.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 public class AdmissionController {
 	
 	

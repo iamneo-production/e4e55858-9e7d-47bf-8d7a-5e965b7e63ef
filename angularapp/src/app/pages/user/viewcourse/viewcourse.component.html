@@ -1,11 +1,12 @@
 <br/>
 <app-search></app-search>
-<button mat-raised-button color="primary" style="margin-left: 50px;" [routerLink]="'add'"><mat-icon>add_circle_outline</mat-icon>Add Course</button>
-<br/>
+
 <br/>
 
 <section class="container">
     <div class="card" *ngFor="let course of courses" >
+
+        <div >
         <div class="card-image">
             
             
@@ -22,13 +23,12 @@
             
             <span class="child" >CourseDuration:{{course.courseDuration}}Years</span>
             <span class="child" style="padding-left: 100px;">
-            <button  mat-icon-button style="color: #00C851;" [routerLink]="course.courseId">
-                <mat-icon >mode_edit</mat-icon>
-            </button>
-            <button  mat-icon-button color="warn" (click)="deleteCourse(course.courseId)">
-                <mat-icon>delete</mat-icon>
-            </button></span>
+            
+            <button type="submit"  mat-raised-button [routerLink]="course.courseId"
+            color="primary"  id="enroll" >Enroll Course</button>
+            </span>
         </div>
+    </div>
     </div>
     
 </section>

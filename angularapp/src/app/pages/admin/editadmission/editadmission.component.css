@@ -1,0 +1,16 @@
+.full-width{
+    width: 100%;
+}
+
+.half-width{
+    width:35%;
+    margin-right: 50px;
+}
+
+.error-msg{
+    font-size: 13px;
+    color: red;
+}
+.button{
+    margin-right: 30px;;
+}
