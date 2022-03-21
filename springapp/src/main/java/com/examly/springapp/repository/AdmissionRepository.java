@@ -20,3 +20,4 @@ public interface AdmissionRepository extends JpaRepository<Admission,Integer> {
 	
 
 }
+
