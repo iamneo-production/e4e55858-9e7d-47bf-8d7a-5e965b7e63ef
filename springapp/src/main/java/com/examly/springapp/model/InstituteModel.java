@@ -4,8 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 
+import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.examly.springapp.model.CourseModel;
 
 @Entity
 @Table(name = "Institute")
@@ -13,8 +19,8 @@ public class InstituteModel {
 	
 	@Id
 	@Column(name="iid")
-	private int instituteId;
-	@Column(name="iiurl")
+	private Integer instituteId;
+	@Column(name="iurl",length = 3000)
 	private String imageUrl;
 	@Column(name = "iname")
 	private String instituteName;
@@ -27,6 +33,22 @@ public class InstituteModel {
 	@Column(name="iemail")
 	private String email;
 	
+	@OneToMany(mappedBy="institute",cascade=CascadeType.ALL)
+	@JsonIgnore
+	@Column(name="iid")
+	private Set<CourseModel> courses=new LinkedHashSet<>();
+	
+	
+//	@OneToMany(mappedBy="institut",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+//	@JsonIgnore
+//	private Set<Admission> admissions=new LinkedHashSet<>();
+	
+	public Set<CourseModel> getCourses() {
+		return courses;
+	}
+	public void setCourses(Set<CourseModel> courses) {
+		this.courses = courses;
+	}
 	public int getInstituteId() {
 		return instituteId;
 	}
@@ -63,11 +85,6 @@ public class InstituteModel {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getImageUrl() {
-		return imageUrl;
-	}
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
+	
 	
 }
