@@ -16,6 +16,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -33,10 +35,20 @@ public class User implements UserDetails{
 	private Long id;//userId
 	//@Column(name = "username", nullable = false)
 	private String username;
+	@JsonIgnore
 	private String password;
 	private String email;
 	private String mobileNumber;
 	
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	private Admission admission;
+	
+	public Admission getAdmission() {
+		return admission;
+	}
+	public void setAdmission(Admission admission) {
+		this.admission = admission;
+	}
 	@ManyToOne(fetch=FetchType.EAGER)
 	private  Role role ;
 

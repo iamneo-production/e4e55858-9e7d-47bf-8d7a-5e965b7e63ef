@@ -42,10 +42,15 @@ public class AdminController {
 	
 	
 	
+	
 	@Autowired
 	private InstituteService instituteService;
 	
+	@Autowired
+	private InstituteRepository repo;
 	
+	
+		
 	
 	
 	@GetMapping("/viewInstitutes")
@@ -103,6 +108,8 @@ public class AdminController {
 		  else {
 		  return ResponseEntity.ok(Message.PROCEED);
 	  }}
-	  
+	 
 	
+	  
+
 }

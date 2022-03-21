@@ -13,6 +13,8 @@ import com.examly.springapp.model.Role;
 import com.examly.springapp.model.User;
 import com.examly.springapp.repository.RoleRepository;
 import com.examly.springapp.repository.UserRepository;
+import com.examly.springapp.repository.AdmissionStatusRepository;
+import com.examly.springapp.model.AdmissionStatus;
 
 @Service
 public class FirstService implements ApplicationListener<ContextRefreshedEvent> {
@@ -26,13 +28,44 @@ public class FirstService implements ApplicationListener<ContextRefreshedEvent> 
 	@Autowired
 	private BCryptPasswordEncoder bCryptEncoder;
 	
+	@Autowired
+	private AdmissionStatusRepository admsr;
+	
 	private Logger logger=LoggerFactory.getLogger(FirstService.class);
+	String approved="APPROVED";
+	String rejected="REJECTED";
+	String pending="PENDING";
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 
          insertRoles();
          insertAdmin();
+		insertAdmissionStatus();
+	}
+	private void insertAdmissionStatus() {
+		if(this.admsr.findStatus(this.pending)==null) {
+			AdmissionStatus admissionStatus=new AdmissionStatus(1, pending);
+			this.admsr.save(admissionStatus);
+		}
+		else {
+			logger.info("REJECTED EXIST");
+		}
+		if(this.admsr.findStatus(this.approved)==null) {
+			AdmissionStatus admissionStatus=new AdmissionStatus(2, approved);
+			this.admsr.save(admissionStatus);
+		}
+		else {
+			logger.info("APPROVED EXIST");
+		}
+		 
+		if(this.admsr.findStatus(this.rejected)==null) {
+			AdmissionStatus admissionStatus=new AdmissionStatus(3, rejected);
+			this.admsr.save(admissionStatus);
+		}
+		else {
+			logger.info("REJECTED EXIST");
+		}
 		
 	}
 
