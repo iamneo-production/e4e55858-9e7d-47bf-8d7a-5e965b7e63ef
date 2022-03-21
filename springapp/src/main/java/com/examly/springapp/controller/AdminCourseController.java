@@ -47,6 +47,7 @@ public class AdminCourseController {
 		return ResponseEntity.ok(repo.findById(courseid).get());
 	}
 	
+	//get courses using instituteId
 	 @GetMapping("/getcourses/instituteid/{instituteid}")
 		public ResponseEntity<Set<CourseModel>> getCourses(@PathVariable("instituteid") int instituteid) {
 		 Set<CourseModel> course=repo.findCourses(instituteid);
