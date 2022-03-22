@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/login.service';
 import { AdmissionService } from 'src/app/services/admission.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -12,11 +13,14 @@ import Swal from 'sweetalert2';
 export class EditadmissionComponent implements OnInit {
 
  
-  constructor(private admissionService:AdmissionService,private route:ActivatedRoute,private router:Router,private snack:MatSnackBar) { }
+  constructor(private admissionService:AdmissionService,private route:ActivatedRoute,private router:Router,private snack:MatSnackBar,private loginservice:LoginService) { }
   admissionId;
   courses;
+  user;
+
  admission;
   ngOnInit(): void {
+    
     this.admissionId=this.route.snapshot.params['admissionId'];
     this.getAdmission(this.admissionId);
     var co=document.getElementById("courseselect");
@@ -37,6 +41,7 @@ export class EditadmissionComponent implements OnInit {
        
        Swal.fire('Successfully Edited !!', 'Application ID: ' + data.admissionId, 'success');
        this.router.navigate(['admin/students']);
+       
     },
     (error) => {
       

@@ -13,7 +13,7 @@
                       
                         <mat-form-field class="half-width" appearance="outline">
                           <mat-label>Admission Id</mat-label>
-                          <input [disabled]="true" id="admissionId"  class="form-control" #admissionId="ngModel" [(ngModel)]="admission.admissionId" name="admissionId"
+                          <input readonly id="admissionId"  class="form-control" #admissionId="ngModel" [(ngModel)]="admission.admissionId" name="admissionId"
                          type="number" required matInput placeholder="Enter admissionId">
                           <div class="error-msg" *ngIf="(admissionId.touched || signupForm.submitted) && admissionId.errors?.required">
                             instituteId is Required!
@@ -23,7 +23,7 @@
 
                          <mat-form-field class="half-width" appearance="outline">
                             <mat-label>student Id</mat-label>
-                            <input [disabled]="true" id="studentId"  class="form-control" #studentId="ngModel" [(ngModel)]="admission.student.studentId" name="studentId"
+                            <input readonly id="studentId"  class="form-control" #studentId="ngModel" [(ngModel)]="admission.student.studentId" name="studentId"
                            type="text" required matInput placeholder="Enter admissionId">
                             <div class="error-msg" *ngIf="(studentId.touched || signupForm.submitted) && studentId.errors?.required">
                               StudentId is Required!
@@ -34,7 +34,7 @@
 
                            <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Institute Name</mat-label>
-                            <input [disabled]="true" id="instituteName"  class="form-control" #instituteName="ngModel" [(ngModel)]="admission.course.institute.instituteName" name="instituteName"
+                            <input readonly id="instituteName"  class="form-control" #instituteName="ngModel" [(ngModel)]="admission.course.institute.instituteName" name="instituteName"
                                type="text" required matInput placeholder="Ex-abc college">
                             <div class="error-msg" *ngIf="(instituteName.touched || signupForm.submitted) && instituteName.errors?.required">
                               institute name is Required!
@@ -44,7 +44,7 @@
 
                            <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Course Name</mat-label>
-                            <input [disabled]="true"  id="courseName"  class="form-control" #courseName="ngModel" [(ngModel)]="admission.course.courseName" name="courseName"
+                            <input readonly  id="courseName"  class="form-control" #courseName="ngModel" [(ngModel)]="admission.course.courseName" name="courseName"
                                type="text" required matInput placeholder="Ex-computer science">
                             <div class="error-msg" *ngIf="(courseName.touched || signupForm.submitted) && courseName.errors?.required">
                               course name is Required!
@@ -54,7 +54,7 @@
 
                            <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Name</mat-label>
-                            <input   id="studentName"  class="form-control" #studentName="ngModel" [(ngModel)]="admission.student.studentName" name="studentName"
+                            <input  readonly id="studentName"  class="form-control" #studentName="ngModel" [(ngModel)]="admission.student.studentName" name="studentName"
                                type="text" required matInput placeholder="Ex-student name">
                             <div class="error-msg" *ngIf="(studentName.touched || signupForm.submitted) && studentName.errors?.required">
                               student name is Required!
@@ -77,7 +77,7 @@
 
                           <mat-form-field class="half-width" appearance="outline">
                             <mat-label>Gender</mat-label>
-                            <input   id="studentGender"  class="form-control" #studentGender="ngModel" [(ngModel)]="admission.student.studentGender" name="studentGender"
+                            <input  readonly id="studentGender"  class="form-control" #studentGender="ngModel" [(ngModel)]="admission.student.studentGender" name="studentGender"
                                type="text" required matInput placeholder="Ex-Gender">
                             <div class="error-msg" *ngIf="(studentGender.touched || signupForm.submitted) && studentGender.errors?.required">
                               course name is Required!
@@ -85,9 +85,23 @@
                             
                            </mat-form-field>
 
+
+                           <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Enter DOB</mat-label>
+                            <input readonly id="studentDOB" class="form-control" #studentDOB="ngModel" [(ngModel)]="admission.student.studentDOB" name="studentDOB"
+                              pattern="^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$" type="text" required matInput placeholder="YYYY-MM-DD Ex-2022-12-31">
+                            <div class="error-msg"
+                              *ngIf="(studentDOB.touched || signupForm.submitted) && studentDOB.errors?.required">
+                              Date of Birth is Required!
+                            </div>
+                            <div class="error-msg" *ngIf="(studentDOB.touched || signupForm.submitted) && studentDOB.errors?.pattern">
+                              enter in proper format Ex-2022-12-31
+                            </div>
+                          </mat-form-field>
+
                           <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Address</mat-label>
-                            <input   id="address"  class="form-control" #address="ngModel" [(ngModel)]="admission.student.address" name="address"
+                            <input readonly  id="address"  class="form-control" #address="ngModel" [(ngModel)]="admission.student.address" name="address"
                                type="text" required matInput placeholder="Ex-computer science">
                             <div class="error-msg" *ngIf="(address.touched || signupForm.submitted) && address.errors?.required">
                               course name is Required!

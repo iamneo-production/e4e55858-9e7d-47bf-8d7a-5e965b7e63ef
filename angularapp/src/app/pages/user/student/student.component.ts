@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class StudentComponent implements OnInit {
 
   user;
+  
 
   constructor(private route:ActivatedRoute,private loginservice:LoginService,private admissionservice:AdmissionService,private snack:MatSnackBar,private router:Router) { }
   admission={

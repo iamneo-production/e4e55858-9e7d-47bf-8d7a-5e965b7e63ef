@@ -52,6 +52,7 @@ import { CheckingadmissionComponent } from './pages/admin/checkingadmission/chec
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +82,8 @@ import { CheckingadmissionComponent } from './pages/admin/checkingadmission/chec
     ViewcourseComponent,
     StudentComponent,
     CheckingadmissionComponent,
-    EditadmissionComponent
+    EditadmissionComponent,
+
   ],
   imports: [
     BrowserModule,
