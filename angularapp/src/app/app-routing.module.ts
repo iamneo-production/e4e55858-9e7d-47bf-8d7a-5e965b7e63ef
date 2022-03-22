@@ -49,7 +49,7 @@ const routes: Routes = [
   
   {path:'admin',canActivate:[AdminGuard],
   children:[
-  {path:'',redirectTo:'students',pathMatch:'full'},
+  {path:'',redirectTo:'institutes',pathMatch:'full'},
   {path:'institutes',component:AdminacademyComponent},
   {path:'institutes/add',component:AddacademyComponent},
   {path:'institutes/:instituteid',component:EditAcademyComponent},
@@ -63,12 +63,13 @@ const routes: Routes = [
   {path:'users/:userId',component:UserdataComponent},
   {path:'users/:userId/changepassword',component:ChangepasswordComponent},
   {path:'approved',component:AdminapprovedapplicationsComponent},
+  {path:'approved/edit/:admissionId',component:EditadmissionComponent},
   {path:'rejected',component:AdminrejectedapplicationsComponent},
   ]},
   
   {path:'user',canActivate:[UserGuard],
   children:[
-  {path:'',redirectTo:'viewinstitute',pathMatch:'full'},
+  {path:'',redirectTo:'enrolledcourse',pathMatch:'full'},
   {path:'viewinstitute',component:ViewacademyComponent},
   {path:'viewinstitute/:instituteid',component:ViewcourseComponent},
   {path:'viewinstitute/:instituteid/:courseid',component:StudentComponent},

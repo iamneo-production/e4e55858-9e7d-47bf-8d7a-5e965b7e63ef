@@ -1,8 +1,5 @@
-<p>adminstudent works!</p>
-{{admissions|json}}
-
-
-
+       
+  
 <br/>
 <app-search></app-search>
 <br/>
@@ -23,7 +20,7 @@
     </thead>
      <tbody >
         
-        <tr *ngFor="let admission of admissions " >
+        <tr *ngFor="let admission of admissions | filter:searchtext |paginate:{itemsPerPage:10,currentPage:p}" >
             <td>{{admission.student.studentId}}</td>
             <td>{{admission.student.studentName}}</td>
             <td>{{admission.student.mobile}}</td>
@@ -33,10 +30,9 @@
             
            
             <td>
-                <button mat-icon-button [routerLink]="'check/'+admission.admissionId"  ><mat-icon>done</mat-icon></button>
-                <button mat-icon-button  classs="btn btn-info"  [routerLink]="'edit/'+admission.admissionId" ><mat-icon>edit</mat-icon></button>
-                <button mat-icon-button color="warn" ><mat-icon>delete_outline</mat-icon></button>
                 
+                <button mat-icon-button [routerLink]="'check/'+admission.admissionId"  ><mat-icon>remove_red_eye</mat-icon></button>
+                <button mat-icon-button  classs="btn btn-info"  [routerLink]="'edit/'+admission.admissionId" ><mat-icon>edit</mat-icon></button>
                 
             </td>
             
@@ -46,7 +42,7 @@
     </tbody> 
     
     </table>
-    <!-- <pagination-controls class="ali"(pageChange)="p=$event"></pagination-controls> -->
+    <pagination-controls class="ali"(pageChange)="p=$event"></pagination-controls> 
       
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { SearchService } from 'src/app/search.service';
 import { CourseService } from 'src/app/services/course.service';
 import Swal from 'sweetalert2';
 
@@ -10,9 +12,12 @@ import Swal from 'sweetalert2';
 export class AdmincourseComponent implements OnInit {
   
 
-  constructor(private courseservice:CourseService) { }
+  constructor(private courseservice:CourseService,private searchservice:SearchService) { }
   courses;
+  searchtext:any;
+  sub:Subscription;
  ngOnInit(): void {
+  this.sub=this.searchservice.cm.subscribe(data=>this.searchtext=data);
    this.getCourses();
    
  }

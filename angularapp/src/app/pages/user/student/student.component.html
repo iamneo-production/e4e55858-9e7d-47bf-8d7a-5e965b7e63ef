@@ -1,4 +1,4 @@
-{{admission|json}}
+
     <div class="bootstrap-wrapper" style="margin-top: 30px;">
         <div class="container">
             <div class="row">
@@ -45,6 +45,19 @@
                                 </div>
                                 <div class="error-msg" *ngIf="(studentGender.touched || signupForm.submitted) && studentGender.errors?.pattern">
                                   Enter m or M for male f or F for female
+                                </div>
+                              </mat-form-field>
+
+                              <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Enter DOB</mat-label>
+                                <input  id="studentDOB" class="form-control" #studentDOB="ngModel" [(ngModel)]="admission.student.studentDOB" name="studentDOB"
+                                  pattern="\d{4}-[0-1][0-9]-[0-3][0-9]" type="text" required matInput placeholder="YYYY-MM-DD Ex-2022-03-31">
+                                <div class="error-msg"
+                                  *ngIf="(studentDOB.touched || signupForm.submitted) && studentDOB.errors?.required">
+                                  Date of Birth is Required!
+                                </div>
+                                <div class="error-msg" *ngIf="(studentDOB.touched || signupForm.submitted) && studentDOB.errors?.pattern">
+                                  enter in proper format Ex-2022-01-31
                                 </div>
                               </mat-form-field>
    
