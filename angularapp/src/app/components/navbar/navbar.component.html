@@ -28,7 +28,7 @@
     
 
     <span class="adminbutton"  *ngIf="isLoggedIn&&user.role.roleName===adminRoleName">
-      <a mat-icon-button routerLink="admin/institutes" routerLinkActive="active" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <a mat-icon-button routerLink="admin/institutes" id="adminInstitute" routerLinkActive="active" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
        Institutes
       </a>
 
@@ -36,7 +36,7 @@
         Courses
       </a>
 
-      <a mat-icon-button routerLink="admin/students" id="adminStudent" routerLinkActive="active"  class="nav-link" aria-label="Example icon-button with heart icon">
+      <a mat-icon-button routerLink="admin/students" id="adminStudents" routerLinkActive="active"  class="nav-link" aria-label="Example icon-button with heart icon">
         Students
       </a>
 
@@ -49,7 +49,7 @@
           <button mat-menu-item routerLink="admin/rejected"><mat-icon>layers_clear</mat-icon>Rejected Applications</button>
           <button  mat-menu-item (click)="logout()" id="logout"><mat-icon>exit_to_app</mat-icon>Logout</button>
         </mat-menu>
-        <a mat-icon-button (click)="logout()" id="adminStudent" style="margin-right: 2px;" routerLinkActive="active"  class="nav-link" aria-label="Example icon-button with heart icon">
+        <a mat-icon-button (click)="logout()" id="logout" style="margin-right: 2px;" routerLinkActive="active"  class="nav-link" aria-label="Example icon-button with heart icon">
           <mat-icon>exit_to_app</mat-icon>
         </a>
 
@@ -57,13 +57,13 @@
 
     
     <span class="adminbutton" *ngIf="isLoggedIn&&user.role.roleName===userRoleName&&userRoleName!==undefined">
-      <a mat-icon-button routerLink="user/viewinstitute" routerLinkActive="active"  class="nav-link" aria-label="Example icon-button with heart icon">
+      <a mat-icon-button routerLink="user/viewinstitute" routerLinkActive="active" id="userInstitute"  class="nav-link" aria-label="Example icon-button with heart icon">
        Institutes
       </a>
 
       
 
-      <a mat-icon-button routerLink="user/enrolledcourse" routerLinkActive="active"  class="nav-link" aria-label="Example icon-button with heart icon">
+      <a mat-icon-button routerLink="user/enrolledcourse" routerLinkActive="active" id="userEnrolledCourse" class="nav-link" aria-label="Example icon-button with heart icon">
        Enrolled Course
       </a>
       
@@ -74,7 +74,7 @@
           <button mat-menu-item routerLink="user/profile"><mat-icon>face</mat-icon>Profile</button>
           <button  mat-menu-item (click)="logout()" id="logout"><mat-icon>exit_to_app</mat-icon>Logout</button>
         </mat-menu> 
-        <a mat-icon-button (click)="logout()" id="adminStudent" style="margin-right: 2px;" routerLinkActive="active"  class="nav-link" aria-label="Example icon-button with heart icon">
+        <a mat-icon-button (click)="logout()" id="logout" style="margin-right: 2px;" routerLinkActive="active"  class="nav-link" aria-label="Example icon-button with heart icon">
           <mat-icon>exit_to_app</mat-icon>
         </a>
      

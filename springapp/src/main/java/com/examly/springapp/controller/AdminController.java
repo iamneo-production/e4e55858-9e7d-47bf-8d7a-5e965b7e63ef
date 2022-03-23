@@ -53,7 +53,7 @@ public class AdminController {
 		
 	
 	
-	@GetMapping("/viewInstitutes")
+	@GetMapping("/admin/viewInstitutes")
 	public ResponseEntity<List<InstituteModel>> viewInstitute() {
 		return ResponseEntity.ok(instituteService.findall());
 	}
@@ -65,7 +65,7 @@ public class AdminController {
 	}
 	
 	
-	@PostMapping("/addInstitute")
+	@PostMapping("/admin/addInstitute")
 	public ResponseEntity<Object> addInstitute(@RequestBody InstituteModel institute) {
 		if(instituteService.findById(institute.getInstituteId())) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseDto("Data already Exist"));
@@ -83,8 +83,8 @@ public class AdminController {
 	}
 	
 
-	@PutMapping("/editInstitute/{instituteId}")
-	public ResponseEntity<Object> editInstitute(@PathVariable int instituteId,@RequestBody InstituteModel institute) {
+	@PutMapping("/admin/editInstitute")
+	public ResponseEntity<Object> editInstitute(@RequestParam("instituteId") int instituteId,@RequestBody InstituteModel institute) {
 		   
 			  if(instituteService.findById(instituteId))
 			  {

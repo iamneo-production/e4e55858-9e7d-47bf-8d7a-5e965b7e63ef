@@ -20,8 +20,7 @@ public class InstituteModel {
 	@Id
 	@Column(name="iid")
 	private Integer instituteId;
-	@Column(name="iurl",length = 3000)
-	private String imageUrl;
+	
 	@Column(name = "iname")
 	private String instituteName;
 	@Column(name="idesc")

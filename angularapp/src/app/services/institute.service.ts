@@ -18,7 +18,7 @@ export class InstituteService {
   }
 
 
-  geturl = "https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/viewInstitutes"
+  geturl = "https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/admin/viewInstitutes"
   getInstitutes(): Observable<Institute[]> {
     return this.http.get<Institute[]>(this.geturl)
       .pipe(
@@ -27,7 +27,7 @@ export class InstituteService {
   }
 
   public addInstitute(institute:any){
-    return this.http.post(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/addInstitute`,institute);
+    return this.http.post(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/admin/addInstitute`,institute);
 
   }
 
@@ -38,13 +38,11 @@ export class InstituteService {
 
   
 
-  editurl = "https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/editInstitute"
- public editInstitute(id, data: Institute) {
-    console.log(data);
-    return this.http.put(this.editurl + "/" + id, JSON.stringify(data), this.httpOptions)
-      .pipe(
-        catchError(this.errorHandler)
-      )
+  
+ public editInstitute(id,  Institute) {
+  
+    return this.http.put(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/admin/editInstitute?instituteId=${id}`,Institute)
+      
   }
 
 

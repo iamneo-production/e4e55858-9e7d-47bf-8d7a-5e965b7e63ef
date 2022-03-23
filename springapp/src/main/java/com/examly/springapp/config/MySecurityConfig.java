@@ -60,7 +60,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 		  .authorizeRequests()
 		
 		  
-		  .antMatchers("/generate-token","/user/signup","/check-email","/check-username","/check-mobileno","/AdminRoleName","/UserRoleName").permitAll()
+		  .antMatchers("/generate-token","/user/signup","/check-email","/check-username","/check-mobileno","/AdminRoleName","/UserRoleName","/admin/addInstitute","/admin/viewInstitutes","/admin/editInstitute").permitAll()
 		 
 		  .antMatchers(HttpMethod.OPTIONS).permitAll()
 		  
