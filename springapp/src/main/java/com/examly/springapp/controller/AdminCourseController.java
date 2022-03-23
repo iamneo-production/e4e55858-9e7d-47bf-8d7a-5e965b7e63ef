@@ -19,38 +19,39 @@ import org.springframework.web.bind.annotation.RestController;
 import com.examly.springapp.dtoclass.ResponseDto;
 import com.examly.springapp.model.CourseModel;
 import com.examly.springapp.model.InstituteModel;
-import com.examly.springapp.repository.CourseRepository;
+import com.examly.springapp.serviceimpl.CourseService;
 
 @RestController
 @CrossOrigin(origins="*")
 public class AdminCourseController {
 	
+
 	@Autowired
-	private CourseRepository repo;
+	private CourseService courseservice;
 	
 	@GetMapping("/getcourses")
 	public ResponseEntity<List<CourseModel>> viewInstitute() {
-		return ResponseEntity.ok(repo.findAll());
+		return ResponseEntity.ok(courseservice.findAll());
 	}
 	
 	@PostMapping("/addcourse")
 	public ResponseEntity<CourseModel> addCourse(@RequestBody CourseModel course) {
-		return ResponseEntity.ok(repo.save(course));
+		return ResponseEntity.ok(courseservice.save(course));
 	}
 	@PostMapping("/updatecourse")
 	public ResponseEntity<CourseModel> updateCourse(@RequestBody CourseModel course) {
-		return ResponseEntity.ok(repo.save(course));
+		return ResponseEntity.ok(courseservice.save(course));
 	}
 	
 	@GetMapping("/getcourse/{courseid}")
 	public ResponseEntity<CourseModel> getCourse(@PathVariable("courseid") int courseid) {
-		return ResponseEntity.ok(repo.findById(courseid).get());
+		return ResponseEntity.ok(courseservice.getCourse(courseid));
 	}
 	
 	//get courses using instituteId
 	 @GetMapping("/getcourses/instituteid/{instituteid}")
 		public ResponseEntity<Set<CourseModel>> getCourses(@PathVariable("instituteid") int instituteid) {
-		 Set<CourseModel> course=repo.findCourses(instituteid);
+		 Set<CourseModel> course=courseservice.findCourses(instituteid);
 		 
 			return ResponseEntity.ok(course);
 		}
@@ -61,10 +62,12 @@ public class AdminCourseController {
 	@DeleteMapping("/deletecourse/{courseId}")
 	public ResponseEntity<Object> deleteCourse(@PathVariable("courseId") int courseId) {
 		
+		if(Boolean.TRUE.equals(courseservice.delete(courseId))) {
+			return ResponseEntity.status(HttpStatus.OK).body(new ResponseDto("course deleted successfully CourseId: "+courseId));}
 		
-		repo.deleteById(courseId);
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ResponseDto("SERVER ERROR"));
 		
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ResponseDto("course deleted"));
+		
 	}
 
 }

@@ -30,9 +30,9 @@ public class Student {
 	
 	
 	
-	@OneToOne(mappedBy="student",fetch=FetchType.LAZY,orphanRemoval=true)
-	@JsonIgnore
-	private Admission admission;
+	// @OneToOne(mappedBy="student",fetch=FetchType.LAZY,orphanRemoval=true)
+	// @JsonIgnore
+	// private Admission admission;
 	
 	
 	
@@ -42,12 +42,12 @@ public class Student {
 	
 	
 	
-	public Admission getAdmission() {
-		return admission;
-	}
-	public void setAdmission(Admission admission) {
-		this.admission = admission;
-	}
+	// public Admission getAdmission() {
+	// 	return admission;
+	// }
+	// public void setAdmission(Admission admission) {
+	// 	this.admission = admission;
+	// }
 	public int getStudentId() {
 		return studentId;
 	}
@@ -113,7 +113,7 @@ public class Student {
 		this.diploma = diploma;
 	}
 	public Student(String studentName, Date studentDOB, String studentGender, String address, String mobile, int sslc,
-			int hsc, int diploma, Admission admission) {
+			int hsc, int diploma) {
 		super();
 		this.studentName = studentName;
 		this.studentDOB = studentDOB;
@@ -123,7 +123,7 @@ public class Student {
 		this.sslc = sslc;
 		this.hsc = hsc;
 		this.diploma = diploma;
-		this.admission = admission;
+		
 	}
 	
 	

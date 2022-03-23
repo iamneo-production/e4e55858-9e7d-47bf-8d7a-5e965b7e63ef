@@ -46,8 +46,7 @@ public class AdminController {
 	@Autowired
 	private InstituteService instituteService;
 	
-	@Autowired
-	private InstituteRepository repo;
+	
 	
 	
 		

@@ -22,9 +22,9 @@ public class Admission {
 	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	private Student student;
     
-	@OneToOne(mappedBy="admission",fetch=FetchType.LAZY,orphanRemoval=true)
-	@JsonIgnore
-	private User user;
+	// @OneToOne(mappedBy="admission")
+	// @JsonIgnore
+	// private User user;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	private CourseModel course;
