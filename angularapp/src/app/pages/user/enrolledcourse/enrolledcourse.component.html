@@ -1,3 +1,9 @@
 <p>enrolledcourse works!</p>
-<mat-card id="enrolledCourse"></mat-card>
-{{admission|json}}
+<mat-card id="enrolledCourse" *ngIf="user" class="card">
+    <button *ngIf="admission.admissionStatus.statusName!='PENDING' && user.rating==null" class="button" [routerLink]="'rate/'+admission.course.institute.instituteId" >Rating</button>
+    <div style="font-size: 18px;">
+    <div>CourseEnrolled:{{admission.course.courseName}}</div>
+    <div>InstituteName:{{admission.course.institute.instituteName}}</div>
+    <div>ApplicationStatus:<b>{{admission.admissionStatus.statusName}}</b></div>
+    </div>
+</mat-card>

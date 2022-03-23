@@ -1,5 +1,6 @@
 com/examly/springapp/model/Student.class
 com/examly/springapp/serviceimpl/UserServiceImpl.class
+com/examly/springapp/repository/RatingRepository.class
 com/examly/springapp/controller/FeedBackController.class
 com/examly/springapp/exception/UserNotFoundException.class
 com/examly/springapp/dtoclass/ResponseDto.class
@@ -28,6 +29,8 @@ com/examly/springapp/dtoclass/RoleResponseDto.class
 com/examly/springapp/repository/AdmissionStatusRepository.class
 com/examly/springapp/model/AdmissionStatus.class
 com/examly/springapp/model/CourseModel.class
+com/examly/springapp/model/Rating.class
+com/examly/springapp/controller/RatingController.class
 com/examly/springapp/serviceimpl/FirstService.class
 com/examly/springapp/controller/AdminController.class
 com/examly/springapp/config/JwtAuthenticationFilter.class

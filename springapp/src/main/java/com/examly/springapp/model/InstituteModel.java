@@ -36,8 +36,17 @@ public class InstituteModel {
 	@JsonIgnore
 	@Column(name="iid")
 	private Set<CourseModel> courses=new LinkedHashSet<>();
+
+	@OneToMany(mappedBy="institute",cascade=CascadeType.ALL)
+	@JsonIgnore
+	private Set<Rating> ratings=new LinkedHashSet<>();
 	
-	
+	public Set<Rating> getRatings() {
+		return ratings;
+	}
+	public void setRatings(Set<Rating> ratings) {
+		this.ratings = ratings;
+	}
 //	@OneToMany(mappedBy="institut",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 //	@JsonIgnore
 //	private Set<Admission> admissions=new LinkedHashSet<>();

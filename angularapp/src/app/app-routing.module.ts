@@ -19,6 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { EnrolledcourseComponent } from './pages/user/enrolledcourse/enrolledcourse.component';
+import { RatingComponent } from './pages/user/rating/rating.component';
 import { ProfileComponent } from './pages/user/profile/profile.component';
 import { StudentComponent } from './pages/user/student/student.component';
 import { ViewacademyComponent } from './pages/user/viewacademy/viewacademy.component';
@@ -74,6 +75,7 @@ const routes: Routes = [
   {path:'viewinstitute/:instituteid',component:ViewcourseComponent},
   {path:'viewinstitute/:instituteid/:courseid',component:StudentComponent},
    {path:'enrolledcourse',component:EnrolledcourseComponent},
+   {path:'enrolledcourse/rate/:instituteid',component:RatingComponent},
    {path:'profile',component:ProfileComponent},
 
 ]},

@@ -42,7 +42,17 @@ public class User implements UserDetails{
 	
 	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	private Admission admission;
+
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	private Rating rating;
 	
+	public Rating getRating() {
+		return rating;
+	}
+	public void setRating(Rating rating) {
+		this.rating = rating;
+	}
+
 	public Admission getAdmission() {
 		return admission;
 	}

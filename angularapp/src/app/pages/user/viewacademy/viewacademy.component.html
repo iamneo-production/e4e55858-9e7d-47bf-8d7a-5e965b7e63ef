@@ -28,7 +28,7 @@
 
         <div class="set" >
             
-            <span class="child" >rating:4.5</span>
+            <span class="child"*ngIf="reviewArray[user.instituteId]!=null">rating:{{reviewArray[user.instituteId]}}/5</span>
             
         </div>
     </div>

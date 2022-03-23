@@ -28,7 +28,7 @@ import com.examly.springapp.dtoclass.ResponseDto;
 import com.examly.springapp.enums.Message;
 
 import com.examly.springapp.model.InstituteModel;
-import com.examly.springapp.repository.InstituteRepository;
+import com.examly.springapp.repository.RatingRepository;
 import com.examly.springapp.serviceimpl.InstituteService;
 import com.examly.springapp.serviceimpl.UserServiceImpl;
 
@@ -45,11 +45,6 @@ public class AdminController {
 	
 	@Autowired
 	private InstituteService instituteService;
-	
-	
-	
-	
-		
 	
 	
 	@GetMapping("/admin/viewInstitutes")

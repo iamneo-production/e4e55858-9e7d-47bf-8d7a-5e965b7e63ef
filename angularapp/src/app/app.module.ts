@@ -49,6 +49,7 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { Date_Formmat } from './date-format';
 import { EditadmissionComponent } from './pages/admin/editadmission/editadmission.component';
 import { CheckingadmissionComponent } from './pages/admin/checkingadmission/checkingadmission.component';
+import { RatingComponent } from './pages/user/rating/rating.component';
 
 
 
@@ -83,6 +84,7 @@ import { CheckingadmissionComponent } from './pages/admin/checkingadmission/chec
     StudentComponent,
     CheckingadmissionComponent,
     EditadmissionComponent,
+    RatingComponent,
 
   ],
   imports: [
