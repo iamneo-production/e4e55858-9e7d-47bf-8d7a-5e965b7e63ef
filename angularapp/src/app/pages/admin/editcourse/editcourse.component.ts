@@ -52,7 +52,7 @@ export class EditcourseComponent implements OnInit {
        this.courseservice.updateCourse(this.course).subscribe((data:any)=>
        {
           
-          Swal.fire('Successfully Added !!', 'Institute Name : ' + data.courseName, 'success');
+          Swal.fire('Successfully Added !!', 'course Name : ' + data.courseName, 'success');
           this.router.navigate(['admin/courses']);
        },
        (error) => {

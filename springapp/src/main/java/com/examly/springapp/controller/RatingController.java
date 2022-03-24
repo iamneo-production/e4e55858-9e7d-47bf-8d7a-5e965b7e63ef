@@ -12,32 +12,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
+import com.examly.springapp.serviceimpl.RatingService;
 
 @RestController
 @CrossOrigin(origins = "*")
 public class RatingController {
 
     @Autowired
-    private UserRepository userrepo;
+    private RatingService ratingservice;
+
+
 
     @PostMapping("/addReview/{userId}")
 	public ResponseEntity<Object> addReview(@PathVariable("userId") Long userId,@RequestBody Rating review) {
-		User user=this.userrepo.findById(userId).get();
-        user.setRating(review);
-		return ResponseEntity.ok(userrepo.save(user));
+		
+		return ResponseEntity.ok(this.ratingservice.saveReview(userId,review));
 	}
 
-    @Autowired
-	private RatingRepository raterepo;
+    
 
 
 	@GetMapping("/averageRate")
 	public ResponseEntity<String> findAvg(@RequestParam("instituteId") int instituteId) {
-		String avgrate=this.raterepo.findAvgRate(instituteId);
+		String avgrate=this.ratingservice.fingAvg(instituteId);
 		if(avgrate==null) {
 			return ResponseEntity.ok("0");
 		}
 		avgrate=avgrate.substring(0, 4);
+		
 		return ResponseEntity.ok(avgrate);
 	}
     

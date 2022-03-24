@@ -31,7 +31,7 @@ export class AddcourseComponent implements OnInit {
       this.courseService.addCourse(this.course).subscribe((data:any)=>
       {
          
-         Swal.fire('Successfully Added !!', 'Institute Name : ' + data.courseName, 'success');
+         Swal.fire('Successfully Added !!', 'Course Name : ' + data.courseName, 'success');
          this.router.navigate(['admin/courses']);
       },
       (error) => {

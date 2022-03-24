@@ -70,7 +70,7 @@ const routes: Routes = [
   
   {path:'user',canActivate:[UserGuard],
   children:[
-  {path:'',redirectTo:'enrolledcourse',pathMatch:'full'},
+  {path:'',redirectTo:'viewinstitute',pathMatch:'full'},
   {path:'viewinstitute',component:ViewacademyComponent},
   {path:'viewinstitute/:instituteid',component:ViewcourseComponent},
   {path:'viewinstitute/:instituteid/:courseid',component:StudentComponent},

@@ -17,6 +17,7 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exception/UserNotFoundException.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Authority.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/dtoclass/ResponseDto.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/RatingController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/JwtResponse.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/CourseService.java
@@ -31,6 +32,7 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exceptionhandler/UserAlreadyExistHandler.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exceptionhandler/UserNotFoundExceptionHandler.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/AdmissionController.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/RatingService.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exception/InvalidCredentialsException.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/dtoclass/RoleResponseDto.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/config/JwtAuthenticationFilter.java
@@ -39,11 +41,13 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/UserDetailsServiceImpl.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/config/MySecurityConfig.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/User.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/RatingRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/InstituteModel.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/AdmissionService.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/JwtRequest.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/InstituteRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/UserModelDto.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Rating.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exception/UserAlreadyExistException.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/CourseModel.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/RoleRepository.java

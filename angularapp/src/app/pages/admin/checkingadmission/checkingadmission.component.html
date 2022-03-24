@@ -110,7 +110,45 @@
                            </mat-form-field>
 
                            
+                           <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Enter sslc percentage</mat-label>
+                            <input readonly id="sslc" class="form-control" #mobileno="ngModel" [(ngModel)]="admission.student.sslc" name="sslc" type="number" #sslc="ngModel"
+                              min="0" max="99"  required matInput placeholder="Ex-90 if not done enter 0" pattern="^([0-9][0-9]?|)$" >
+                            <div class="error-msg"
+                              *ngIf="(sslc.touched || signupForm.submitted) && sslc.errors?.required">
+                              sslc percentage is Required!
+                            </div>
+                            <div class="error-msg" *ngIf="(sslc.touched || signupForm.submitted) && sslc.errors?.pattern">
+                              Enter range between 0 to 99
+                            </div>
+                           
+                          </mat-form-field>
+                          
+                          <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Enter hsc percentage</mat-label>
+                            <input readonly id="hsc" class="form-control" #mobileno="ngModel" [(ngModel)]="admission.student.hsc" name="hsc" type="number" #hsc="ngModel"
+                              min="0" max="99"  required matInput placeholder="Ex-90 if not done enter 0" pattern="^([0-9][0-9]?|)$" >
+                            <div class="error-msg"
+                              *ngIf="(hsc.touched || signupForm.submitted) && hsc.errors?.required">
+                              hsc percentage is Required!
+                            </div>
+                            <div class="error-msg" *ngIf="(hsc.touched || signupForm.submitted) && hsc.errors?.pattern">
+                              Enter range between 0 to 99
+                            </div>
+                           </mat-form-field>
 
+                          <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Enter diploma percentage</mat-label>
+                            <input readonly id="diploma" class="form-control" #mobileno="ngModel" [(ngModel)]="admission.student.diploma" name="diploma" type="number" #diploma="ngModel"
+                              min="0" max="99"  required matInput placeholder="Ex-90 if not done enter 0" pattern="^([0-9][0-9]?|)$" >
+                            <div class="error-msg"
+                              *ngIf="(diploma.touched || signupForm.submitted) && diploma.errors?.required">
+                              diploma percentage is Required!
+                            </div>
+                            <div class="error-msg" *ngIf="(diploma.touched || signupForm.submitted) && diploma.errors?.pattern">
+                              Enter range between 0 to 99
+                            </div>
+                            </mat-form-field>
 
     
 

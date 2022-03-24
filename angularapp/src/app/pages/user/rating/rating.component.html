@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <mat-card *ngIf="userId">
-                   {{rating|json}}
+                 
             
                     <form #signupForm="ngForm" (ngSubmit)="onSubmit();">
 
                 
 
                         <mat-form-field class="full-width" appearance="outline">
-                            <mat-label>Select Insitute</mat-label>
+                            <mat-label>Select Rating level</mat-label>
                             <mat-select (selectionChange)="onChange($event)">
                                 <mat-option [value]="1">1</mat-option>
                                 <mat-option [value]="2">2</mat-option>
@@ -41,9 +41,9 @@
 
                          <div class="container text-center">
                             <button type="submit" class="button" [disabled]="!signupForm.form.valid" mat-raised-button
-                              color="primary"  id="submitButton" >Edit</button>
+                              color="primary"  id="submitButton" >submmit review</button>
                     
-                              <button (click)="cancel()" class="button" mat-raised-button
+                              <button (click)="cancel()" class="button" mat-raised-button style="margin-left: 30px;"
                               style="background-color: whitesmoke;"  id="submitButton" >cancel</button>
                           </div>
                       </form>
