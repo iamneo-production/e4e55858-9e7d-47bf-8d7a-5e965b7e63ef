@@ -38,7 +38,7 @@
                               <mat-form-field class="full-width" appearance="outline">
                                 <mat-label>Enter Gender</mat-label>
                                 <input  id="studentGender" class="form-control" #studentGender="ngModel" [(ngModel)]="admission.student.studentGender" name="studentGender"
-                                  pattern="[mMfF]" type="text" required matInput placeholder="Enter M for male F for female">
+                                  pattern="[mMfF]{1}" type="text" required matInput placeholder="Enter M for male F for female">
                                 <div class="error-msg"
                                   *ngIf="(studentGender.touched || signupForm.submitted) && studentGender.errors?.required">
                                   Gender is Required!
