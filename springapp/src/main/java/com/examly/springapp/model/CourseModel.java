@@ -13,7 +13,11 @@ import java.util.Set;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import com.examly.springapp.model.InstituteModel;
-
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 @Entity
 @Table(name="course")
 public class CourseModel {
@@ -21,8 +25,13 @@ public class CourseModel {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int courseId;
+	@NotEmpty(message="Course name not be empty")
+	@NotNull
     private String courseName;
+	@NotEmpty(message="Course Description should not be empty")
+	@NotNull
 	private String courseDescription;
+	@NotNull(message="duration is required")
 	private String courseDuration;
 	
 	
@@ -30,6 +39,7 @@ public class CourseModel {
 	
 	
 	@ManyToOne(fetch=FetchType.EAGER)
+	@NotNull(message="institute Selection is mandatory")
 	private InstituteModel institute;
 	
 	

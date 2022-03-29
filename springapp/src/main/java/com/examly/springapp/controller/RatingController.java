@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.examly.springapp.serviceimpl.RatingService;
+import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -24,7 +25,7 @@ public class RatingController {
 
 
     @PostMapping("/addReview/{userId}")
-	public ResponseEntity<Object> addReview(@PathVariable("userId") Long userId,@RequestBody Rating review) {
+	public ResponseEntity<Object> addReview(@PathVariable("userId") Long userId,@Valid @RequestBody Rating review) {
 		
 		return ResponseEntity.ok(this.ratingservice.saveReview(userId,review));
 	}

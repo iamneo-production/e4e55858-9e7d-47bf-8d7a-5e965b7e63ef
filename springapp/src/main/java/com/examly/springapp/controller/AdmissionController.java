@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import javax.validation.Valid;
 import com.examly.springapp.model.Admission;
 import com.examly.springapp.model.AdmissionStatus;
 import com.examly.springapp.model.Student;
@@ -39,7 +39,7 @@ public class AdmissionController {
 
 	
 	@PostMapping("/saveAdmission/{userId}")
-	public ResponseEntity<Object> saveAdmission(@PathVariable("userId") Long userid,@RequestBody Admission admission)
+	public ResponseEntity<Object> saveAdmission(@PathVariable("userId") Long userid,@Valid @RequestBody Admission admission)
 	{
 		return ResponseEntity.ok(this.admissionservice.saveAdmission(userid,admission));
 	
@@ -75,7 +75,7 @@ public class AdmissionController {
 	}
 	
 	 @PutMapping("/editadmission")
-	 public ResponseEntity<Object> editAdmission(@RequestBody Admission admission){
+	 public ResponseEntity<Object> editAdmission(@Valid @RequestBody Admission admission){
 	
 		 return ResponseEntity.ok(this.admissionservice.editAdmission(admission));
 	 }

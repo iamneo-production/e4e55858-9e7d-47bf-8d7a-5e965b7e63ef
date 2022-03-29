@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import javax.validation.Valid;
 import com.examly.springapp.dtoclass.ResponseDto;
 import com.examly.springapp.model.CourseModel;
 import com.examly.springapp.model.InstituteModel;
@@ -35,11 +35,11 @@ public class AdminCourseController {
 	}
 	
 	@PostMapping("/addcourse")
-	public ResponseEntity<CourseModel> addCourse(@RequestBody CourseModel course) {
+	public ResponseEntity<CourseModel> addCourse(@Valid @RequestBody CourseModel course) {
 		return ResponseEntity.ok(courseservice.save(course));
 	}
-	@PostMapping("/updatecourse")
-	public ResponseEntity<CourseModel> updateCourse(@RequestBody CourseModel course) {
+	@PutMapping("/updatecourse")
+	public ResponseEntity<CourseModel> updateCourse(@Valid @RequestBody CourseModel course) {
 		return ResponseEntity.ok(courseservice.save(course));
 	}
 	

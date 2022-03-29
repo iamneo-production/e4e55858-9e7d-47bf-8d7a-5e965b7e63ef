@@ -1,11 +1,27 @@
 package com.examly.springapp.model;
-
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 public class UserModelDto {
 
 	private Long id;
+	@NotEmpty(message="username required")
+	@NotNull
 	private String username;
+	@Size(min=4,message="username should be 4characters in length")
+	@NotEmpty(message="username required")
+	@NotNull
+	@Size(min=8,message="pasword should be 8characters in length")
 	private String password;
+	@NotEmpty(message="email required")
+	@NotNull
+	@Email(message="must be a valid Email")
 	private String email;
+	@NotEmpty(message="mobile number required")
+	@NotNull
+	@Pattern(regexp="(^$|[0-9]{10})",message="enter valid mobile number")
 	private String mobileNumber;
 	public Long getId() {
 		return id;

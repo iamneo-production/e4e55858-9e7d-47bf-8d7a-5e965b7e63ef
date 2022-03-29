@@ -26,7 +26,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.examly.springapp.dtoclass.ResponseDto;
 import com.examly.springapp.enums.Message;
-
+import javax.validation.Valid;
 import com.examly.springapp.model.InstituteModel;
 import com.examly.springapp.repository.RatingRepository;
 import com.examly.springapp.serviceimpl.InstituteService;
@@ -60,7 +60,7 @@ public class AdminController {
 	
 	
 	@PostMapping("/admin/addInstitute")
-	public ResponseEntity<Object> addInstitute(@RequestBody InstituteModel institute) {
+	public ResponseEntity<Object> addInstitute(@Valid @RequestBody InstituteModel institute) {
 		if(instituteService.findById(institute.getInstituteId())) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseDto("Data already Exist"));
 		}
@@ -78,7 +78,7 @@ public class AdminController {
 	
 
 	@PutMapping("/admin/editInstitute")
-	public ResponseEntity<Object> editInstitute(@RequestParam("instituteId") int instituteId,@RequestBody InstituteModel institute) {
+	public ResponseEntity<Object> editInstitute(@RequestParam("instituteId") int instituteId,@Valid @RequestBody InstituteModel institute) {
 		   
 			  if(instituteService.findById(instituteId))
 			  {

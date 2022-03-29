@@ -13,19 +13,38 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.examly.springapp.model.Admission;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 @Entity
 public class Student {
     
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int studentId;
+	@NotNull
+	@NotEmpty(message="name is required")
 	private String studentName;
+	@NotNull
 	private Date studentDOB;
+	@NotNull
+	@NotEmpty(message="Gender is required")
+	@Pattern(regexp="([mMfF]{1})",message="enter m for male F for female")
 	private String studentGender;
+	@NotNull
+	@NotEmpty(message="Address is required")
 	private String address; 
+	@NotNull
+	@NotEmpty(message="Mobile number is required")
+	@Pattern(regexp="(^$|[0-9]{10})",message="enter valid mobile number")
 	private String mobile; 
+	@NotNull
 	private int sslc;
+	@NotNull
 	private int hsc; 
+	@NotNull
 	private int diploma;
 	
 	

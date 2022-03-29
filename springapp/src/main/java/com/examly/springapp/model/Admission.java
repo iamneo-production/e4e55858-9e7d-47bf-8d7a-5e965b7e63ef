@@ -10,6 +10,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Admission {
@@ -20,6 +25,7 @@ public class Admission {
 	private int admissionId;
 	
 	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@NotNull
 	private Student student;
     
 	// @OneToOne(mappedBy="admission")
@@ -27,6 +33,7 @@ public class Admission {
 	// private User user;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
+	@NotNull
 	private CourseModel course;
 	
 	

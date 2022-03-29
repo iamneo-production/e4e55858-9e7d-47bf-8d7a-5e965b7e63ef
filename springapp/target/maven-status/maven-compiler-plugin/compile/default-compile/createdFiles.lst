@@ -36,6 +36,7 @@ com/examly/springapp/serviceimpl/FirstService.class
 com/examly/springapp/controller/AdminController.class
 com/examly/springapp/config/JwtAuthenticationFilter.class
 com/examly/springapp/repository/UserRepository.class
+com/examly/springapp/exceptionhandler/ValidationHandler.class
 com/examly/springapp/exception/InvalidCredentialsException.class
 com/examly/springapp/model/Role.class
 com/examly/springapp/model/JwtResponse.class

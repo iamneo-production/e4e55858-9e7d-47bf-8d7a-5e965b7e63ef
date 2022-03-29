@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import javax.validation.Valid;
 import com.examly.springapp.dtoclass.ResponseDto;
 import com.examly.springapp.enums.ExceptionMessage;
 import com.examly.springapp.enums.Message;
@@ -54,7 +54,7 @@ public class UserController {
 	//creating user
 	@PostMapping("/user/signup")
 	@ResponseBody
-	public ResponseEntity<User> createUser(@RequestBody UserModelDto user1){
+	public ResponseEntity<User> createUser(@Valid @RequestBody UserModelDto user1){
 		
 		 User user=new User();
 		 user.setEmail(user1.getEmail());
@@ -125,7 +125,7 @@ public class UserController {
 	//update user
 	@PutMapping("/user/edit/{userId}")
 	@ResponseBody
-	public ResponseEntity<Object> editUser(@PathVariable("userId")Long userId,@RequestBody UserModelDto userdto){
+	public ResponseEntity<Object> editUser(@PathVariable("userId")Long userId,@Valid @RequestBody UserModelDto userdto){
 		User user=new User();
 		user.setId(userdto.getId());
 		user.setEmail(userdto.getEmail());

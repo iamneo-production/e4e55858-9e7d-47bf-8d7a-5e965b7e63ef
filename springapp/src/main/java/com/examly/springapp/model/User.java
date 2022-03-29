@@ -20,7 +20,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "user",uniqueConstraints={
@@ -34,10 +38,22 @@ public class User implements UserDetails{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;//userId
 	//@Column(name = "username", nullable = false)
+	@NotEmpty(message="username required")
+	@NotNull
+	@Size(min=4,message="username should be 4characters in length")
 	private String username;
 	@JsonIgnore
+	@NotEmpty(message="password required")
+	@NotNull
+	@Size(min=8,message="pasword should be 8characters in length")
 	private String password;
+	@NotEmpty(message="email required")
+	@NotNull
+	@Email(message="must be a valid Email")
 	private String email;
+	@NotEmpty(message="mobile number required")
+	@NotNull
+	@Pattern(regexp="(^$|[0-9]{10})",message="enter valid mobile number")
 	private String mobileNumber;
 	
 	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)

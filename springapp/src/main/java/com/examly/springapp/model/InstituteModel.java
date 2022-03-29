@@ -1,5 +1,10 @@
 package com.examly.springapp.model;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,16 +24,30 @@ public class InstituteModel {
 	
 	@Id
 	@Column(name="iid")
+	@NotNull
 	private Integer instituteId;
 	
 	@Column(name = "iname")
+	@NotEmpty(message="institute name must not be empty")
+	@NotNull
 	private String instituteName;
 	@Column(name="idesc")
+	@NotEmpty(message="Description not be empty")
+	@NotNull
+	@Size(min=10,max=150,message="Description should be minimum 10characters length max 150characters")
 	private String instituteDescription;
+	@NotEmpty(message="Address should not be empty")
+	@NotNull
 	@Column(name="iaddress")
 	private String instituteAddress;
+	@NotEmpty(message="Mobile number should not be empty")
+	@NotNull
+	@Pattern(regexp="(^$|[0-9]{10})",message="enter valid mobile number")
 	@Column(name="imobile")
 	private String mobile;
+	@NotEmpty(message="Email should not be empty")
+	@NotNull
+	@Email(message="Enter valid email Address")
 	@Column(name="iemail")
 	private String email;
 	

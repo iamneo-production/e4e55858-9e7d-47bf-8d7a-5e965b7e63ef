@@ -21,6 +21,7 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/SpringappApplication.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/JwtResponse.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/CourseService.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exceptionhandler/ValidationHandler.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/AdmissionStatusRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/FirstService.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/config/JwtUtil.java
