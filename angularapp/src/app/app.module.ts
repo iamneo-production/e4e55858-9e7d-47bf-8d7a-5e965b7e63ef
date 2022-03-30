@@ -50,6 +50,7 @@ import { Date_Formmat } from './date-format';
 import { EditadmissionComponent } from './pages/admin/editadmission/editadmission.component';
 import { CheckingadmissionComponent } from './pages/admin/checkingadmission/checkingadmission.component';
 import { RatingComponent } from './pages/user/rating/rating.component';
+import { ReviewsComponent } from './pages/reviews/reviews.component';
 
 
 
@@ -85,6 +86,7 @@ import { RatingComponent } from './pages/user/rating/rating.component';
     CheckingadmissionComponent,
     EditadmissionComponent,
     RatingComponent,
+    ReviewsComponent,
 
   ],
   imports: [

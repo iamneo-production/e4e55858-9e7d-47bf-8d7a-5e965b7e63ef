@@ -38,7 +38,6 @@
               </mat-form-field>
                
               <!--mobile no-->
-              {{user.mobileNumber}}
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Enter Mobile Number</mat-label>
                 <input  id="mobileNumber" (blur)="mobileNumberExist()" (keyup.enter)="mobileNumberExist()" class="form-control" #mobileno="ngModel" [(ngModel)]="user.mobileNumber" name="mobileNumber" type="number"

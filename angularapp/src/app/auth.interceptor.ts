@@ -20,6 +20,7 @@ export class AuthInterceptor implements HttpInterceptor{
         
         
         if(token!=null){
+            console.log(token+"message**")
             authReq=authReq.clone({
                 
                 setHeaders:{Authorization:`Bearer ${token}`},

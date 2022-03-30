@@ -25,6 +25,7 @@ import { StudentComponent } from './pages/user/student/student.component';
 import { ViewacademyComponent } from './pages/user/viewacademy/viewacademy.component';
 import { ViewcourseComponent } from './pages/user/viewcourse/viewcourse.component';
 import { UserGuard } from './user.guard';
+import { ReviewsComponent } from './pages/reviews/reviews.component';
 
 const routes: Routes = [
   {
@@ -50,9 +51,10 @@ const routes: Routes = [
   
   {path:'admin',canActivate:[AdminGuard],
   children:[
-  {path:'',redirectTo:'institutes',pathMatch:'full'},
+  {path:'',redirectTo:'institutes/reviews/10',pathMatch:'full'},
   {path:'institutes',component:AdminacademyComponent},
   {path:'institutes/add',component:AddacademyComponent},
+  {path:'institutes/reviews/:instituteid',component:ReviewsComponent},
   {path:'institutes/:instituteid',component:EditAcademyComponent},
   {path:'courses',component:AdmincourseComponent},
   {path:'courses/add',component:AddcourseComponent},

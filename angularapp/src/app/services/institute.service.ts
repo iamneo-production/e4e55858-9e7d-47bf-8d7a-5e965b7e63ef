@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Institute } from '../institute';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,7 @@ export class InstituteService {
 
   deleteurl = "https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/deleteInstitute"
   deleteInstitute(id: Number) {
+    console.log(id)
     return this.http.delete(this.deleteurl + "/" + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)

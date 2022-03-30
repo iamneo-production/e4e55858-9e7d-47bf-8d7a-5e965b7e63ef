@@ -29,7 +29,7 @@
 
         <div class="set" >
             
-            <span class="child" *ngIf="reviewArray[user.instituteId]!=null"><mat-icon>star_half</mat-icon>{{reviewArray[user.instituteId]}}/5</span>
+            <span [routerLink]="'reviews/'+user.instituteId" class="child" *ngIf="reviewArray[user.instituteId]!=null"><mat-icon >star_half</mat-icon>{{reviewArray[user.instituteId]}}/5</span>
             <span class="child" style="padding-left: 150px;">
             <button [routerLink]="user.instituteId" mat-icon-button style="color: #00C851;">
                 <mat-icon >mode_edit</mat-icon>
