@@ -22,7 +22,7 @@ import com.examly.springapp.serviceimpl.UserDetailsServiceImpl;
 
 @EnableWebSecurity
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled=true)
+// @EnableGlobalMethodSecurity(prePostEnabled=true)
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
 	
@@ -52,17 +52,19 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.
-		  csrf()
+		http
+		  .csrf()
 		  .disable()
 		  .cors()
 		  .disable()
 		  .authorizeRequests()
-		
+		//   .antMatchers("/admin/viewInstitutes").hasAnyAuthority("USER","ADMIN")
+		//   .antMatchers("/deleteInstitute/{instituteId}","/checkid","/addcourse","/updatecourse","/deletecourse/**","/approve/**","/reject/**","/approved","/pending","/rejected","/user/all","/user/delete/**").hasAnyAuthority("ADMIN")
 		  
+		//   .antMatchers("/addReview/**").hasAnyAuthority("USER")
 		  .antMatchers("/generate-token","/user/signup","/check-email","/check-username","/check-mobileno","/AdminRoleName","/UserRoleName","/admin/addInstitute","/admin/viewInstitutes","/admin/editInstitute").permitAll()
 		 
-		  .antMatchers(HttpMethod.OPTIONS).permitAll()
+		.antMatchers(HttpMethod.OPTIONS).permitAll()
 		  
 		  .anyRequest().authenticated()
 		  

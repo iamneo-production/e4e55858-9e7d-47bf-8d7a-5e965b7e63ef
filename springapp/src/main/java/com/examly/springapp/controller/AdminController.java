@@ -37,7 +37,7 @@ import java.util.Optional;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://8081-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io")
 public class AdminController {
 	
 	
@@ -61,7 +61,7 @@ public class AdminController {
 	
 	@PostMapping("/admin/addInstitute")
 	public ResponseEntity<Object> addInstitute(@Valid @RequestBody InstituteModel institute) {
-		if(instituteService.findById(institute.getInstituteId())) {
+		if(instituteService.findById(institute.getInstituteId()) ||instituteService.findByInstituteName(institute.getInstituteName()) || instituteService.findByEmail(institute.getEmail()) || instituteService.findByAddress(institute.getInstituteAddress())|| instituteService.findByMobile(institute.getMobile())) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseDto("Data already Exist"));
 		}
 		return ResponseEntity.ok(instituteService.save(institute));
@@ -82,6 +82,7 @@ public class AdminController {
 		   
 			  if(instituteService.findById(instituteId))
 			  {
+				
 				  return ResponseEntity.ok(instituteService.save(institute));
 			  }
 			  

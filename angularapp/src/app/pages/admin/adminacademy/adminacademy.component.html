@@ -15,7 +15,7 @@
       
             </div>
         
-        <div style="margin-top: 10px; font-size: 20px;">{{user.instituteName}}</div>
+        <div style="margin-top: 10px;"><mat-icon>account_balance</mat-icon><span style=" font-size: 24px;">{{user.instituteName|uppercase}}</span></div>
         <div class="desc" style="margin-top: 40px;">Description:
             <p>{{user.instituteDescription}}</p></div>
 
@@ -29,7 +29,7 @@
 
         <div class="set" >
             
-            <span class="child" *ngIf="reviewArray[user.instituteId]!=null">rating:{{reviewArray[user.instituteId]}}/5</span>
+            <span class="child" *ngIf="reviewArray[user.instituteId]!=null"><mat-icon>star_half</mat-icon>{{reviewArray[user.instituteId]}}/5</span>
             <span class="child" style="padding-left: 150px;">
             <button [routerLink]="user.instituteId" mat-icon-button style="color: #00C851;">
                 <mat-icon >mode_edit</mat-icon>

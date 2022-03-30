@@ -10,6 +10,9 @@ import java.util.List;
 @Repository
 public interface InstituteRepository extends JpaRepository<InstituteModel, Integer>{
 
-    @Query(value="select institute_Id from institute where institute_Id=5",nativeQuery=true)
-	public List<Object> getonly();
+
+    public InstituteModel findByInstituteName(String instituteName);
+    public InstituteModel findByInstituteAddress(String instituteAddress);
+    public InstituteModel findByMobile(String mobile);
+    public InstituteModel findByEmail(String email);
 }

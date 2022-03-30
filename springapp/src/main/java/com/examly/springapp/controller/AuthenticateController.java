@@ -28,6 +28,7 @@ import com.examly.springapp.model.JwtResponse;
 import com.examly.springapp.model.User;
 
 import com.examly.springapp.repository.UserRepository;
+import com.examly.springapp.serviceimpl.UserServiceImpl;
 import com.examly.springapp.serviceimpl.UserDetailsServiceImpl;
 import com.examly.springapp.exception.InvalidCredentialsException;
 
@@ -45,6 +46,8 @@ public class AuthenticateController {
 	
 	@Autowired
 	private UserDetailsServiceImpl userdetailserviceimpl;
+	@Autowired
+	private UserServiceImpl userservice;
 	
 	@Autowired 
 	private UserRepository userrepository;
@@ -97,7 +100,7 @@ public class AuthenticateController {
   @GetMapping("/check-email")
   public ResponseEntity<Object> getEmail(@RequestParam("mail")String mail){
 	  
-	  if(Boolean.TRUE.equals(checkMailExist(mail)))
+	  if(Boolean.TRUE.equals(this.userservice.checkMailExist(mail)))
 	  {
 		 
 		  return ResponseEntity.ok(new  ResponseDto(Message.MAIL_ID_EXIST.toString()));
@@ -105,45 +108,30 @@ public class AuthenticateController {
 	  
 	  return ResponseEntity.ok(Message.PROCEED);
   }
-  public Boolean checkMailExist(String mail) {
-		 
-	  return this.userrepository.checkEmailExist(mail)!=null;
-  }
+  
   
   
   @GetMapping("/check-username")
   public ResponseEntity<Object> getUsername(@RequestParam("username")String username){
 	  
-	  if(Boolean.TRUE.equals(checkUsernameExist(username)))
+	  if(Boolean.TRUE.equals(this.userservice.checkUsernameExist(username)))
 	  {
 		  return ResponseEntity.ok(new  ResponseDto(Message.USERNAME_EXIST.toString()));
 	  }
-	  
-	  
-	  
-	  return ResponseEntity.ok(Message.PROCEED);
+	   return ResponseEntity.ok(Message.PROCEED);
   }
-  public Boolean checkUsernameExist(String username) {
-		 
-	  return this.userrepository.checkUsername(username)!=null;
-  }
+  
   
   @GetMapping("/check-mobileno")
   public ResponseEntity<Object> getMobile(@RequestParam("mobileno")String mobileno){
 	  
-	  if(Boolean.TRUE.equals(checkMobileNoExist(mobileno)))
+	  if(Boolean.TRUE.equals(this.userservice.checkMobileNoExist(mobileno)))
 	  {
 		  return ResponseEntity.ok(new  ResponseDto(Message.MOBILENUMBER_EXIST.toString()));
 	  }
-	  
-	  
-	  
 	  return ResponseEntity.ok(Message.PROCEED);
   }
-  public Boolean checkMobileNoExist(String mobileno) {
-		 
-	  return this.userrepository.checkMobile(mobileno)!=null;
-  }
+  
   
   @GetMapping("/AdminRoleName")
   public ResponseEntity<RoleResponseDto> sendAdminRoleName() {

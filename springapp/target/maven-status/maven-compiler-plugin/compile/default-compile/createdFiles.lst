@@ -16,7 +16,6 @@ com/examly/springapp/service/UserService.class
 com/examly/springapp/model/UserModelDto.class
 com/examly/springapp/controller/AuthenticateController.class
 com/examly/springapp/repository/AdmissionRepository.class
-com/examly/springapp/exceptionhandler/UserAlreadyExistHandler.class
 com/examly/springapp/SpringappApplication.class
 com/examly/springapp/exceptionhandler/DatabaseTranscationExceptionHandler.class
 com/examly/springapp/exceptionhandler/InvalidCredentialsExceptionHandler.class
@@ -33,7 +32,9 @@ com/examly/springapp/model/CourseModel.class
 com/examly/springapp/model/Rating.class
 com/examly/springapp/controller/RatingController.class
 com/examly/springapp/serviceimpl/FirstService.class
+com/examly/springapp/exception/AlreadyExistException.class
 com/examly/springapp/controller/AdminController.class
+com/examly/springapp/exceptionhandler/AlreadyExistHandler.class
 com/examly/springapp/config/JwtAuthenticationFilter.class
 com/examly/springapp/repository/UserRepository.class
 com/examly/springapp/exceptionhandler/ValidationHandler.class
@@ -48,7 +49,6 @@ com/examly/springapp/serviceimpl/AdmissionService.class
 com/examly/springapp/exceptionhandler/UserNotFoundExceptionHandler.class
 com/examly/springapp/controller/AdminCourseController.class
 com/examly/springapp/config/MySecurityConfig.class
-com/examly/springapp/exception/UserAlreadyExistException.class
 com/examly/springapp/repository/RoleRepository.class
 com/examly/springapp/repository/CourseRepository.class
 com/examly/springapp/model/InstituteModel.class

@@ -1,8 +1,8 @@
 package com.examly.springapp.exception;
 
-public class UserAlreadyExistException extends RuntimeException {
+public class AlreadyExistException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
-	public UserAlreadyExistException(String message) {
+	public AlreadyExistException(String message) {
 		super(message);
 	}
 

@@ -24,7 +24,7 @@ import com.examly.springapp.enums.ExceptionMessage;
 import com.examly.springapp.enums.Message;
 import com.examly.springapp.enums.RoleName;
 import com.examly.springapp.exception.DatabaseTranscationException;
-import com.examly.springapp.exception.UserAlreadyExistException;
+import com.examly.springapp.exception.AlreadyExistException;
 import com.examly.springapp.model.Role;
 import com.examly.springapp.model.User;
 import com.examly.springapp.model.UserModelDto;
@@ -38,11 +38,7 @@ public class UserController {
 	@Autowired
 	private UserServiceImpl userservice;
 	
-	@Autowired
-	private UserRepository userrepository;
 	
-	@Autowired
-	private RoleRepository rolerepo;
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptEncoder;
@@ -54,7 +50,7 @@ public class UserController {
 	//creating user
 	@PostMapping("/user/signup")
 	@ResponseBody
-	public ResponseEntity<User> createUser(@Valid @RequestBody UserModelDto user1){
+	public ResponseEntity<User> createUser(@RequestBody UserModelDto user1){
 		
 		 User user=new User();
 		 user.setEmail(user1.getEmail());
@@ -62,20 +58,14 @@ public class UserController {
 		 user.setPassword(this.bCryptEncoder.encode(user1.getPassword()));
 		 user.setUsername(user1.getUsername());
 	
-	     if((checkMailExist(user.getEmail()))||checkMobileNoExist(user.getMobileNumber())||Boolean.TRUE.equals(checkUsernameExist(user.getUsername()))) {
-	           throw new UserAlreadyExistException(ExceptionMessage.USER_WITH_SAME_DATA_EXIST.toString());
+	     if((this.userservice.checkMailExist(user.getEmail()))||this.userservice.checkMobileNoExist(user.getMobileNumber())||Boolean.TRUE.equals(this.userservice.checkUsernameExist(user.getUsername()))) {
+	           throw new AlreadyExistException(ExceptionMessage.USER_WITH_SAME_DATA_EXIST.toString());
 	     }
-	     Role role=this.rolerepo.roleExist(RoleName.USER.toString());
-	     if(role==null) {
-	    	 logger.info("Rerun application");
-	     }
-	     user.setRole(role);
-	     this.userservice.addUser(user);
-	     if(this.userrepository.checkEmailExist(user.getEmail())!=null) {
-	    	
-		  return ResponseEntity.ok(user);}
-	     else
-	    	 throw new DatabaseTranscationException(Message.DATABASE_ERROR.toString()+" UserName:- "+user.getUsername()+" Not saved ");
+	    
+	     
+	     
+	     
+	     return ResponseEntity.ok(this.userservice.addUser(user));
 		
 	}
 	
@@ -125,7 +115,7 @@ public class UserController {
 	//update user
 	@PutMapping("/user/edit/{userId}")
 	@ResponseBody
-	public ResponseEntity<Object> editUser(@PathVariable("userId")Long userId,@Valid @RequestBody UserModelDto userdto){
+	public ResponseEntity<Object> editUser(@PathVariable("userId")Long userId,@RequestBody UserModelDto userdto){
 		User user=new User();
 		user.setId(userdto.getId());
 		user.setEmail(userdto.getEmail());
@@ -169,25 +159,4 @@ public class UserController {
 		
 	}
 	
-	
-	public Boolean checkMobileNoExist(String mobileno) {
-		 
-		  return this.userrepository.checkMobile(mobileno)!=null;
-		  
-	  }
-	
-	public Boolean checkUsernameExist(String username) {
-		 
-		  return this.userrepository.checkUsername(username)!=null;
-		 
-	  }
-	
-	public Boolean checkMailExist(String mail) {
-		 
-		  return this.userrepository.checkEmailExist(mail)!=null;
-	  }
-	  
-	
-
-
 }

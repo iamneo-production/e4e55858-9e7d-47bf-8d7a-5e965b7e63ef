@@ -2,6 +2,7 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/AdmissionRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/InstituteService.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Student.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exceptionhandler/AlreadyExistHandler.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/UserRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/enums/Message.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exceptionhandler/EmptyResultDataAccessExceptionHandler.java
@@ -30,7 +31,6 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/StudentRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/AdminController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/config/JwtAuthenticationEntryPoint.java
-/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exceptionhandler/UserAlreadyExistHandler.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exceptionhandler/UserNotFoundExceptionHandler.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/AdmissionController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/RatingService.java
@@ -49,7 +49,7 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/InstituteRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/UserModelDto.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Rating.java
-/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exception/UserAlreadyExistException.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/CourseModel.java
+/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exception/AlreadyExistException.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/repository/RoleRepository.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/exceptionhandler/DatabaseTranscationExceptionHandler.java

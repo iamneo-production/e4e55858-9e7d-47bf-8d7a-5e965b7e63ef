@@ -18,7 +18,40 @@ public class InstituteService {
 
 	public List<InstituteModel> findall()
 	{
+		
 		return instituterepo.findAll();
+	}
+	public boolean findByEmail(String email) {
+		InstituteModel institute=instituterepo.findByEmail(email);
+		
+		if(institute!=null) {
+			return true;
+		}
+		return false;
+	}
+	public boolean findByInstituteName(String name) {
+		InstituteModel institute=instituterepo.findByInstituteName(name);
+		
+		if(institute!=null) {
+			return true;
+		}
+		return false;
+	}
+	public boolean findByMobile(String mobile) {
+		InstituteModel institute=instituterepo.findByMobile(mobile);
+		
+		if(institute!=null) {
+			return true;
+		}
+		return false;
+	}
+	public boolean findByAddress(String add) {
+		InstituteModel institute=instituterepo.findByInstituteAddress(add);
+		
+		if(institute!=null) {
+			return true;
+		}
+		return false;
 	}
 
 	public InstituteModel save(InstituteModel institute) {
@@ -30,6 +63,7 @@ public class InstituteService {
 		if(institute.isPresent()) {
 			return true;
 		}
+		
 		return false;
 	}
 
@@ -39,8 +73,7 @@ public class InstituteService {
 	}
 
 	public InstituteModel getInstitute(Integer instituteId) {
-		InstituteModel institute=instituterepo.findById(instituteId).get();
-		return institute;
+		return instituterepo.findById(instituteId).get();
 	}
 	
 

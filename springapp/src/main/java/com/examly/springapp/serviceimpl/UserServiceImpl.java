@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.model.User;
+import com.examly.springapp.model.Role;
 import com.examly.springapp.repository.UserRepository;
 import com.examly.springapp.service.UserService;
 
@@ -17,10 +18,13 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserRepository userRepository;
 
-	
+     
 
 	@Override
 	public User addUser(User user) {
+		Role role=new Role();
+		role.setRoleId(2);
+		user.setRole(role);
    return this.userRepository.save(user);
 	}
 
@@ -69,5 +73,22 @@ public class UserServiceImpl implements UserService{
 			return null;
 		}
 	}
+	
+	public Boolean checkMobileNoExist(String mobileno) {
+		 
+		  return this.userRepository.findByMobileNumber(mobileno)!=null;
+		  
+	  }
+	
+	public Boolean checkUsernameExist(String username) {
+		 
+		  return this.userRepository.findByUsername(username)!=null;
+		 
+	  }
+	
+	public Boolean checkMailExist(String mail) {
+		 
+		  return this.userRepository.findByEmail(mail)!=null;
+	  }
 
 }

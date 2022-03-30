@@ -71,7 +71,7 @@ public class FirstService implements ApplicationListener<ContextRefreshedEvent> 
 
 	private void insertAdmin() {
 		
-		if(this.userrepo.checkEmailExist("admin@gmail.com")==null) {
+		if(this.userrepo.findByEmail("admin@gmail.com")==null) {
 			User user=new User();
 			user.setEmail("admin@gmail.com");
 			user.setMobileNumber("9999999999");
