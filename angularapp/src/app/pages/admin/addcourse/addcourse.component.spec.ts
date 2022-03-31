@@ -1,3 +1,6 @@
+//imports
+
+
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -16,8 +19,10 @@ describe('AddcourseComponent', () => {
   
     await TestBed.configureTestingModule({
     
+      
       declarations: [ AddcourseComponent ]
     
+      
     })
     
       .compileComponents();
