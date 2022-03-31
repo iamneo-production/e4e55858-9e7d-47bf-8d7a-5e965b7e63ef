@@ -38,14 +38,16 @@ export class AddcourseComponent implements OnInit {
        
       //Checking whether institute id is blank or null 
       
-      if (this.course.institute.instituteId == '' || this.course.institute.instituteId== null) {    
+      if (this.course.institute.instituteId == '' || this.course.institute.instituteId== null) 
+      {    
         this.snack.open("Institute selection is required !! ", '', {  
           duration: 3000,   
         });  
         return; 
       } 
       this.courseService.addCourse(this.course).subscribe((data:any)=> 
-      { 
+      
+         { 
          //Sending Successfully Added message 
          Swal.fire('Successfully Added !!', 'Course Name : ' + data.courseName, 'success'); 
         
@@ -79,18 +81,22 @@ export class AddcourseComponent implements OnInit {
       
     }  
   }  
+  
    
 
    
 
   onChange(event:any){  
-     
+  
+    
     let instituteId = event.value;  
     this.course.institute.instituteId=instituteId;  
     
-  }  
+    
+  } 
 
-   
+  
+  
 } 
 
 
