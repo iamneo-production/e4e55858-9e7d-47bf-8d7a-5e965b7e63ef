@@ -40,11 +40,12 @@ password() {
   this.show = !this.show;
 }
 
-formSubmit() {
-  console.log(this.user);
-  if (this.user.email == '' || this.user.email == null) {
-    this.snack.open("Email is required !! ", '', {
-      duration: 3000,
+//   after form submitting it will check null or blank
+formSubmit() {  
+  console.log(this.user); 
+  if (this.user.email == '' || this.user.email == null) { 
+    this.snack.open("Email is required !! ", '', { 
+      duration: 3000, 
       // verticalPosition: 'top',
       // horizontalPosition: 'right',
     });
