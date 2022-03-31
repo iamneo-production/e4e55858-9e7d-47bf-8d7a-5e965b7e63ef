@@ -1,68 +1,82 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder,Validators, NgForm, FormControl } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+//importing all  the modules 
 
-import { CourseService } from 'src/app/services/course.service';
-import { InstituteService } from 'src/app/services/institute.service';
-import Swal from 'sweetalert2';
+import { Component, OnInit, ViewChild } from '@angular/core'; 
+import { FormGroup, FormBuilder,Validators, NgForm, FormControl } from '@angular/forms'; 
+import { MatSnackBar } from '@angular/material/snack-bar'; 
+import { Router } from '@angular/router'; 
 
-@Component({
-  selector: 'app-addcourse',
-  templateUrl: './addcourse.component.html',
-  styleUrls: ['./addcourse.component.css']
-})
-export class AddcourseComponent implements OnInit {
-  constructor(private institueservice:InstituteService,private snack:MatSnackBar,private courseService:CourseService,private router:Router) { }
+import { CourseService } from 'src/app/services/course.service'; 
+import { InstituteService } from 'src/app/services/institute.service'; 
+import Swal from 'sweetalert2'; 
 
-  ngOnInit(): void {
-    this.institueservice.getInstitutes().subscribe((data:any)=>{
-      this.institutes=data;
-      console.log(data)
-    })
-    }
-    onSubmit(){
-      if (this.course.institute.instituteId == '' || this.course.institute.instituteId== null) {
-        this.snack.open("Institute selection is required !! ", '', {
-          duration: 3000,
-        });
-        return;
-      }
-      this.courseService.addCourse(this.course).subscribe((data:any)=>
-      {
+
+@Component({ 
+  selector: 'app-addcourse', 
+  templateUrl: './addcourse.component.html', 
+  styleUrls: ['./addcourse.component.css'] 
+}) 
+
+export class AddcourseComponent implements OnInit { 
+  constructor(private institueservice:InstituteService,private snack:MatSnackBar,private courseService:CourseService,private router:Router) { } 
+
+  ngOnInit(): void { 
+    
+    this.institueservice.getInstitutes().subscribe((data:any)=>{ 
+      this.institutes=data; 
+      console.log(data) 
+      
+    }) 
+    
+    } 
+  
+    onSubmit(){ 
+      if (this.course.institute.instituteId == '' || this.course.institute.instituteId== null) { 
+        this.snack.open("Institute selection is required !! ", '', { 
+          duration: 3000, 
+        }); 
+        return; 
+      } 
+      this.courseService.addCourse(this.course).subscribe((data:any)=> 
+      { 
          
-         Swal.fire('Successfully Added !!', 'Course Name : ' + data.courseName, 'success');
-         this.router.navigate(['admin/courses']);
-      },
-      (error) => {
+         Swal.fire('Successfully Added !!', 'Course Name : ' + data.courseName, 'success'); 
+         this.router.navigate(['admin/courses']); 
         
-        console.log("mes");
-        console.log(error.message)
-        //alert('Something Wrong');
-        this.snack.open(error.error.message, '', {
-          duration: 5000,
-        });
+      },
+                                                          
+      (error) => { 
+        
+        console.log("mes"); 
+        console.log(error.message) 
+        //alert('Something Wrong'); 
+        this.snack.open(error.error.message, '', { 
+          duration: 5000, 
+          
+        }); 
        
       });
-    }
+      
+    } 
     
-   institutes:any[];
-   course={
-    courseName:'',
-    courseDescription:'',
-    courseDuration:'',
-    institute:{
-      instituteId:''
-    }
-  }
+   institutes:any[]; 
+   course={ 
+    courseName:'', 
+    courseDescription:'', 
+    courseDuration:'', 
+    institute:{ 
+      instituteId:'' 
+    } 
+  } 
    
 
    
 
-  onChange(event:any){
-    let instituteId = event.value;
-    this.course.institute.instituteId=instituteId;
-  }
+  onChange(event:any){ 
+    
+    let instituteId = event.value; 
+    this.course.institute.instituteId=instituteId; 
+    
+  } 
 
    
 }
