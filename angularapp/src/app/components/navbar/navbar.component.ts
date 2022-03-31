@@ -49,6 +49,7 @@ export class NavbarComponent implements OnInit {
     //this.login.loginStatusSubject.next(false);
   }
 
+// fethces adminrolename from serverside
   fetchadminRoleName(){
     this.userservice.adminRoleName().subscribe((data)=>{
       this.adminRoleName=data.role;
