@@ -34,7 +34,7 @@ public class InstituteModel {
 	@Column(name="idesc") 
 	@NotEmpty(message="Description not be empty") 
 	@NotNull 
-	@Size(min=10,max=150,message="Description should be minimum 10characters length max 150characters") 
+	@Size(max=150,message="Description should be minimum 10characters length max 150characters") 
 	private String instituteDescription; 
 	@NotEmpty(message="Address should not be empty") 
 	@NotNull   

@@ -11,7 +11,6 @@
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Role.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/UserController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/enums/ExceptionMessage.java
-/home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/controller/FeedBackController.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/model/Admission.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/enums/RoleName.java
 /home/coder/project/workspace/springapp/src/main/java/com/examly/springapp/serviceimpl/UserServiceImpl.java
