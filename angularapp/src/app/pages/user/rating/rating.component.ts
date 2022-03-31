@@ -35,7 +35,8 @@ export class RatingComponent implements OnInit {
     })
   }
  // submitting rating
-  onSubmit(){      
+  onSubmit(){     
+    
     this.reviewservice.addReview(this.userId,this.rating).subscribe((data:any)=>{  
       Swal.fire('Successfully Added !!', "review", 'success');   
       this.router.navigate(['/user/enrolledcourse'])   

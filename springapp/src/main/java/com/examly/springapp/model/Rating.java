@@ -27,7 +27,6 @@ public class Rating {
 	private String review;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JsonIgnore
 	private InstituteModel institute;
 
 	public Rating(Integer rating, String review) {

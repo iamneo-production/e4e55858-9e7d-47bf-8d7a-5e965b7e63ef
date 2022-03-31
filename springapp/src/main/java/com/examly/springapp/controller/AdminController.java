@@ -62,7 +62,7 @@ public class AdminController {
 	@PostMapping("/admin/addInstitute")       
 	public ResponseEntity<Object> addInstitute(@Valid @RequestBody InstituteModel institute) {   
 		if(instituteService.findById(institute.getInstituteId()) ||instituteService.findByInstituteName(institute.getInstituteName()) || instituteService.findByEmail(institute.getEmail()) || instituteService.findByAddress(institute.getInstituteAddress())|| instituteService.findByMobile(institute.getMobile())) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseDto("Data already Exist"));   
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseDto("Institute data already Exist"));   
 		}   
 		
 		return ResponseEntity.ok(instituteService.save(institute));   
