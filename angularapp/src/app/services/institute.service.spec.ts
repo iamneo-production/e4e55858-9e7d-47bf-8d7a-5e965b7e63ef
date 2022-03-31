@@ -1,16 +1,19 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing'; 
 
-import { InstituteService } from './institute.service';
+import { InstituteService } from './institute.service'; 
 
-describe('InstituteService', () => {
-  let service: InstituteService;
+describe('InstituteService', () => { 
+  let service: InstituteService; 
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(InstituteService);
-  });
+  beforeEach(() => { 
+    TestBed.configureTestingModule({}); 
+    service = TestBed.inject(InstituteService); 
+  }); 
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  it('should be created', () => { 
+    expect(service).toBeTruthy(); 
+  }); 
+  
+  
+});  
+  
