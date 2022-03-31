@@ -1,35 +1,63 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing'; 
+import { ComponentFixture, TestBed } from '@angular/core/testing';  
  
 
-import { ViewacademyComponent } from './viewacademy.component'; 
+import { ViewacademyComponent } from './viewacademy.component';  
 
 
-describe('ViewacademyComponent', () => { 
+describe('ViewacademyComponent', () => {  
   
-  let component: ViewacademyComponent; 
+  let component: ViewacademyComponent;  
   
-  let fixture: ComponentFixture<ViewacademyComponent>; 
+  let fixture: ComponentFixture<ViewacademyComponent>;  
   
   
 
-  beforeEach(async () => { 
+  beforeEach(async () => {  
     
-    await TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({ 
       
-      declarations: [ ViewacademyComponent ] 
+      declarations: [ ViewacademyComponent ]  
        
-    })  
-    .compileComponents();  
-  });  
+    })   
+    
+    
+    .compileComponents();   
+    
+    
+  });   
 
-  beforeEach(() => { 
-    fixture = TestBed.createComponent(ViewacademyComponent); 
-    component = fixture.componentInstance;  
-    fixture.detectChanges();  
-  });  
+  beforeEach(() => {  
+    fixture = TestBed.createComponent(ViewacademyComponent);  
+    
+    
+    component = fixture.componentInstance;   
+    
+    
+    fixture.detectChanges();   
+    
+    
+  });   
 
-  it('should create', () => {  
-    expect(component).toBeTruthy();  
-  });  
-});  
+  it('should create', () => {    
+    
+    
+    expect(component).toBeTruthy();   
+    
+    
+  });   
+  
+  
+  
+  
+  
+  
+  
+});   
+
+
+
+
+
+
+
  
