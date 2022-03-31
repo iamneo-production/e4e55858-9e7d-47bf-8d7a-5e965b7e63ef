@@ -9,33 +9,33 @@ import Swal from 'sweetalert2';
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.css']
 })
-export class RatingComponent implements OnInit {  
+export class RatingComponent implements OnInit {   
 
   constructor(private route:ActivatedRoute,private router:Router,private snack:MatSnackBar,private loginservice:LoginService,private reviewservice:ReviewService) { }
- rating={  
-   rating:'', 
-   review:'', 
-   institute:{  
-     instituteId:''  
-   } 
- };  
- userId;  
-  ngOnInit(): void {  
-    this.rating.institute.instituteId=this.route.snapshot.params['instituteid'];  
-    this.getUser();   
+ rating={   
+   rating:'',  
+   review:'',  
+   institute:{   
+     instituteId:''   
+   }  
+ };   
+ userId;   
+  ngOnInit(): void {   
+    this.rating.institute.instituteId=this.route.snapshot.params['instituteid'];   
+    this.getUser();    
              
-  }
+  } 
 
-  getUser(){   
-    this.loginservice.getCurrentUser().subscribe((data:any)=>{   
+  getUser(){    
+    this.loginservice.getCurrentUser().subscribe((data:any)=>{    
   
-      this.userId=data.id;   
+      this.userId=data.id;    
           
           
     })
   }
  // submitting rating
-  onSubmit(){     
+  onSubmit(){      
     this.reviewservice.addReview(this.userId,this.rating).subscribe((data:any)=>{  
       Swal.fire('Successfully Added !!', "review", 'success');   
       this.router.navigate(['/user/enrolledcourse'])   
@@ -43,7 +43,7 @@ export class RatingComponent implements OnInit {
           
   }
   //cancel the rating
-  cancel(){        
+  cancel(){         
     this.router.navigate(['/user/enrolledcourse'])    
             
   }   
