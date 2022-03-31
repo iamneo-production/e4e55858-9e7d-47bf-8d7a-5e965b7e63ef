@@ -59,7 +59,11 @@ public class InstituteModel {
 	@OneToMany(mappedBy="institute",cascade=CascadeType.ALL)        
 	@JsonIgnore        
 	private Set<Rating> ratings=new LinkedHashSet<>();     
-	           
+	          
+	      
+	          
+	            
+	        
 	public Set<Rating> getRatings() {   
 		return ratings;     
 	}                                               
