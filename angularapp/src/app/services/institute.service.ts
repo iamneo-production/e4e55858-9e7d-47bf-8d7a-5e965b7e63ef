@@ -10,6 +10,7 @@ import { identifierModuleUrl } from '@angular/compiler';
 })
 export class InstituteService {
 
+  public url="https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io"
   constructor(private http: HttpClient) { }
 
   httpOptions = {
@@ -28,13 +29,13 @@ export class InstituteService {
   }
 
   public addInstitute(institute:any){
-    return this.http.post(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/admin/addInstitute`,institute);
+    return this.http.post(`${this.url}/admin/addInstitute`,institute);
 
   }
 
   public getInstitute(instituteId){
     
-    return this.http.get(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/getInstitute/${instituteId}`);
+    return this.http.get(`${this.url}/getInstitute/${instituteId}`);
   }
 
   
@@ -42,7 +43,7 @@ export class InstituteService {
   
  public editInstitute(id,  Institute) {
   
-    return this.http.put(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/admin/editInstitute?instituteId=${id}`,Institute)
+    return this.http.put(`${this.url}/admin/editInstitute?instituteId=${id}`,Institute)
       
   }
 
@@ -70,7 +71,7 @@ export class InstituteService {
   }
 
   checkInstituteId(id){
-    return this.http.get<any>(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/checkid?instituteId=${id}`);
+    return this.http.get<any>(`${this.url}/checkid?instituteId=${id}`);
   }
 
 

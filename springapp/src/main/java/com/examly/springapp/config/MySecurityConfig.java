@@ -59,7 +59,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 		  .disable()
 		  .authorizeRequests()
 		//   .antMatchers("/admin/viewInstitutes").hasAnyAuthority("USER","ADMIN")
-		   .antMatchers("/deleteInstitute/{instituteId}","/checkid","/addcourse","/updatecourse","/deletecourse/**","/approve/**","/reject/**","/approved","/pending","/rejected","/user/all","/user/delete/**").permitAll()
+		 //  .antMatchers("/deleteInstitute/{instituteId}","/checkid","/addcourse","/updatecourse","/deletecourse/**","/approve/**","/reject/**","/approved","/pending","/rejected","/user/all","/user/delete/**").permitAll()
 		  
 		//   .antMatchers("/addReview/**").hasAnyAuthority("USER")
 		  .antMatchers("/generate-token","/user/signup","/check-email","/check-username","/check-mobileno","/AdminRoleName","/UserRoleName","/admin/addInstitute","/admin/viewInstitutes","/admin/editInstitute").permitAll()

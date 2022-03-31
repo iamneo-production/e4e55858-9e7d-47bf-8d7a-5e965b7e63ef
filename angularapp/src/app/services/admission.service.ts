@@ -7,37 +7,39 @@ import { Injectable } from '@angular/core';
 export class AdmissionService {
   constructor(private http:HttpClient) { }
 
+  public url="https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io"
+
   public saveAdmission(userid,admission){
-    return this.http.post(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/saveAdmission/${userid}`,admission);
+    return this.http.post(`${this.url}/saveAdmission/${userid}`,admission);
   }
    
   public getallPendingAdmissions(){
-    return this.http.get(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/pending`);
+    return this.http.get(`${this.url}/pending`);
   }
   public getallRejectedAdmissions(){
-    return this.http.get(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/rejected`);
+    return this.http.get(`${this.url}/rejected`);
   }
   public getallApprovedAdmissions(){
-    return this.http.get(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/approved`);
+    return this.http.get(`${this.url}/approved`);
   }
 
   public getAdmission(admissionId){
-    return this.http.get(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/getadmission/${admissionId}`);
+    return this.http.get(`${this.url}/getadmission/${admissionId}`);
   }
 
   public approveApplication(admissionId){
-    return this.http.put(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/approve/${admissionId}`,'');
+    return this.http.put(`${this.url}/approve/${admissionId}`,'');
   }
 
   public rejectApplication(admissionId){
-    return this.http.put(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/reject/${admissionId}`,'');
+    return this.http.put(`${this.url}/reject/${admissionId}`,'');
   
   }
   public getCourses(instituteId){
-    return this.http.get(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/getcourses/instituteid/${instituteId}`);
+    return this.http.get(`${this.url}/getcourses/instituteid/${instituteId}`);
   }
 
   public editAdmission(admission){
-    return this.http.put(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/editadmission`,admission);
+    return this.http.put(`${this.url}/editadmission`,admission);
   }
 }

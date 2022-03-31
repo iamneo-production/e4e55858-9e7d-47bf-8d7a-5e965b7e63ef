@@ -6,26 +6,28 @@ import { Injectable } from '@angular/core';
 })
 export class CourseService {
 
+  public url="https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io"
+
   constructor(private http:HttpClient) { }
   public addCourse(course:any){
-    return this.http.post(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/addcourse`,course);
+    return this.http.post(`${this.url}/addcourse`,course);
 
   }
   public getCourses(){
-    return this.http.get(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/getcourses`);
+    return this.http.get(`${this.url}/getcourses`);
   }
   public getCoursesbyInstituteId(instituteId){
     
-    return this.http.get(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/getcourses/instituteid/${instituteId}`);
+    return this.http.get(`${this.url}/getcourses/instituteid/${instituteId}`);
   }
   public deleteCourse(courseId){
-    return this.http.delete(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/deletecourse/${courseId}`);
+    return this.http.delete(`${this.url}/deletecourse/${courseId}`);
   }
 
   public getCourse(courseId){
-    return this.http.get(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/getcourse/${courseId}`)
+    return this.http.get(`${this.url}/getcourse/${courseId}`)
   }
   public updateCourse(course){
-    return this.http.post(`https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io/updatecourse`,course);
+    return this.http.post(`${this.url}/updatecourse`,course);
   }
 }

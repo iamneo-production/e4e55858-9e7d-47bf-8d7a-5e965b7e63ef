@@ -51,7 +51,7 @@ const routes: Routes = [
   
   {path:'admin',canActivate:[AdminGuard],
   children:[
-  {path:'',redirectTo:'institutes/reviews/10',pathMatch:'full'},
+  {path:'',redirectTo:'institutes',pathMatch:'full'},
   {path:'institutes',component:AdminacademyComponent},
   {path:'institutes/add',component:AddacademyComponent},
   {path:'institutes/reviews/:instituteid',component:ReviewsComponent},
