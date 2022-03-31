@@ -10,7 +10,8 @@ describe('AddacademyComponent', () => {
   
   let fixture: ComponentFixture<AddacademyComponent>;
   
-
+//
+  
   beforeEach(async () => { 
     
     await TestBed.configureTestingModule({ 
@@ -32,7 +33,8 @@ describe('AddacademyComponent', () => {
     fixture.detectChanges(); 
     
   }); 
-
+  
+//
   it('should create', () => { 
     
     expect(component).toBeTruthy(); 
