@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'; 
 
-import { CheckingadmissionComponent } from './checkingadmission.component';
+import { CheckingadmissionComponent } from './checkingadmission.component'; 
 
-describe('CheckingadmissionComponent', () => {
-  let component: CheckingadmissionComponent;
-  let fixture: ComponentFixture<CheckingadmissionComponent>;
+describe('CheckingadmissionComponent', () => { 
+  let component: CheckingadmissionComponent; 
+  let fixture: ComponentFixture<CheckingadmissionComponent>; 
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CheckingadmissionComponent ]
-    })
-    .compileComponents();
-  });
+  beforeEach(async () => { 
+    await TestBed.configureTestingModule({ 
+      declarations: [ CheckingadmissionComponent ] 
+    }) 
+    .compileComponents(); 
+  }); 
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CheckingadmissionComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  beforeEach(() => { 
+    fixture = TestBed.createComponent(CheckingadmissionComponent); 
+    component = fixture.componentInstance; 
+    fixture.detectChanges(); 
+  }); 
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  it('should create', () => { 
+    expect(component).toBeTruthy(); 
+  }); 
+}); 
