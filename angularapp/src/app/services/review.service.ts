@@ -16,4 +16,9 @@ public url="https://8080-abafacbedafaceebdebdfeadaaaceadb.examlyiopb.examly.io"
   public getAvgReview(instituteId){
     return this.http.get(`${this.url}/averageRate?instituteId=${instituteId}`);
   }
+
+  public getallReviews(instituteId){
+    return this.http.get(`${this.url}/allReviews/${instituteId}`);
+
+  }
 }

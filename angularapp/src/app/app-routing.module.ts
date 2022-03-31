@@ -74,6 +74,7 @@ const routes: Routes = [
   children:[
   {path:'',redirectTo:'viewinstitute',pathMatch:'full'},
   {path:'viewinstitute',component:ViewacademyComponent},
+  {path:'viewinstitute/reviews/:instituteid',component:ReviewsComponent},
   {path:'viewinstitute/:instituteid',component:ViewcourseComponent},
   {path:'viewinstitute/:instituteid/:courseid',component:StudentComponent},
    {path:'enrolledcourse',component:EnrolledcourseComponent},

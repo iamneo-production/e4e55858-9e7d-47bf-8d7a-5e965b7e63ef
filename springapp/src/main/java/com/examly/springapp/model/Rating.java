@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Rating {
 	
@@ -25,6 +27,7 @@ public class Rating {
 	private String review;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
+	@JsonIgnore
 	private InstituteModel institute;
 
 	public Rating(Integer rating, String review) {

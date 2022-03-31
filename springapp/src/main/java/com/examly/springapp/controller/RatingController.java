@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.examly.springapp.serviceimpl.RatingService;
 import javax.validation.Valid;
+import java.util.List;
+import com.examly.springapp.model.Rating;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -28,6 +30,11 @@ public class RatingController {
 	public ResponseEntity<Object> addReview(@PathVariable("userId") Long userId,@Valid @RequestBody Rating review) {
 		
 		return ResponseEntity.ok(this.ratingservice.saveReview(userId,review));
+	}
+
+	@GetMapping("/allReviews/{instituteId}")
+	public ResponseEntity<List<Rating>> allReviews(@PathVariable("instituteId") Integer instituteId){
+      return ResponseEntity.ok(this.ratingservice.allReviews(instituteId));
 	}
 
     

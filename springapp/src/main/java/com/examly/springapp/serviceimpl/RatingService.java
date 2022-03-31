@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 @Service
 public class RatingService {
     @Autowired
@@ -23,6 +24,10 @@ public class RatingService {
         user.setRating(review);
         return userrepo.save(user);
 
+    }
+
+    public List<Rating> allReviews(Integer instituteId){
+        return raterepo.findallByin(instituteId);
     }
 
     public String fingAvg(int instituteId){
