@@ -19,13 +19,14 @@ export class ViewcourseComponent implements OnInit {
     
     this.getcourses(this.instituteId);
   }
-
-  getcourses(instituteId){
-    console.log(instituteId)
-    this.courseService.getCoursesbyInstituteId(instituteId).subscribe((data:any)=>{
-      this.courses=data;
-      console.log(data);
-    })
+ 
+//   It will fetches all courses using instituteid
+  getcourses(instituteId){ 
+    console.log(instituteId) 
+    this.courseService.getCoursesbyInstituteId(instituteId).subscribe((data:any)=>{ 
+      this.courses=data; 
+      console.log(data); 
+    }) 
   }
 
 }
