@@ -1,64 +1,73 @@
 import { Component, OnInit } from '@angular/core'; 
 
-import { Router } from '@angular/router'; 
 
-import { InstituteService } from 'src/app/services/institute.service'; 
+import { Router } from '@angular/router';  
 
-import { ReviewService } from 'src/app/services/review.service'; 
+import { InstituteService } from 'src/app/services/institute.service';  
+
+import { ReviewService } from 'src/app/services/review.service';  
 
 
-@Component({ 
+@Component({  
   
-  selector: 'app-viewacademy',
+  selector: 'app-viewacademy', 
   
-  templateUrl: './viewacademy.component.html',
+  templateUrl: './viewacademy.component.html',  
   
-  styleUrls: ['./viewacademy.component.css']
-  
-}) 
-export class ViewacademyComponent implements OnInit {
-  
-
-  reviewArray:Array<{
+  styleUrls: ['./viewacademy.component.css'] 
     
-    id:number;rate:string  
-  }>=[];  
+})  
+export class ViewacademyComponent implements OnInit { 
+  
 
-  constructor(private instituteService:InstituteService,private router:Router,private reviewservice:ReviewService) { }  
-   institutes;  
-  ngOnInit(): void { 
+  reviewArray:Array<{ 
     
-    this.instituteService.getInstitutes().subscribe((data)=>{
+    id:number;rate:string   
+  }>=[];   
+
+  constructor(private instituteService:InstituteService,private router:Router,private reviewservice:ReviewService) { }   
+   institutes;   
+  ngOnInit(): void {  
+    
+    this.instituteService.getInstitutes().subscribe((data)=>{ 
       
-    this.institutes=data;
+    this.institutes=data; 
       
-    this.getRating(data);  
-    }); 
+    this.getRating(data);   
+    });  
    
        
     
     
-  }
+  } 
 
-  getRating(insti){  
+  getRating(insti){   
     
-    for(let i of insti){  
-      let id=i.instituteId;  
-      this.reviewservice.getAvgReview(id).subscribe((data:any)=>{ 
-        this.reviewArray[id]=data; 
+    for(let i of insti){    
+      let id=i.instituteId;   
+      this.reviewservice.getAvgReview(id).subscribe((data:any)=>{  
+        this.reviewArray[id]=data;  
          
         
         
-      })  
-      console.log(this.reviewArray) 
+      })   
+      console.log(this.reviewArray)  
       
       
       
-    } 
+      
+      
+    }  
       
     
     
-   } 
+    
+    
+    
+   }  
+  
+  
+  
  
   
-} 
+}  
