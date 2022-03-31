@@ -1,27 +1,27 @@
 
-import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { InstituteService } from 'src/app/services/institute.service';
-import Swal from 'sweetalert2';
+import { Component, OnInit } from '@angular/core'; 
+import { MatSnackBar } from '@angular/material/snack-bar'; 
+import { Router } from '@angular/router'; 
+import { InstituteService } from 'src/app/services/institute.service'; 
+import Swal from 'sweetalert2'; 
 
-@Component({
-  selector: 'app-addacademy',
-  templateUrl: './addacademy.component.html',
-  styleUrls: ['./addacademy.component.css']
-})
-export class AddacademyComponent implements OnInit {
+@Component({ 
+  selector: 'app-addacademy', 
+  templateUrl: './addacademy.component.html', 
+  styleUrls: ['./addacademy.component.css'] 
+}) 
+export class AddacademyComponent implements OnInit { 
 
  
-  constructor(private instituteService: InstituteService,private snack: MatSnackBar,private router:Router) { }
+  constructor(private instituteService: InstituteService,private snack: MatSnackBar,private router:Router) { } 
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { 
+  } 
 
-  IDExist=""
+  IDExist="" 
   
 
-  institute={
+  institute={ 
     instituteId:'',
     instituteName:'',
     mobile:'',
