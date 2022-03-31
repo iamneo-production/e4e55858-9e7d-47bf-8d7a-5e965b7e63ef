@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from 'src/app/login.service';
-import { ReviewService } from 'src/app/services/review.service';
-import Swal from 'sweetalert2';
-@Component({
-  selector: 'app-rating',
-  templateUrl: './rating.component.html',
-  styleUrls: ['./rating.component.css']
-})
+import { Component, OnInit } from '@angular/core'; 
+import { MatSnackBar } from '@angular/material/snack-bar'; 
+import { ActivatedRoute, Router } from '@angular/router'; 
+import { LoginService } from 'src/app/login.service'; 
+import { ReviewService } from 'src/app/services/review.service'; 
+import Swal from 'sweetalert2'; 
+@Component({ 
+  selector: 'app-rating', 
+  templateUrl: './rating.component.html', 
+  styleUrls: ['./rating.component.css'] 
+}) 
 export class RatingComponent implements OnInit {   
 
-  constructor(private route:ActivatedRoute,private router:Router,private snack:MatSnackBar,private loginservice:LoginService,private reviewservice:ReviewService) { }
+  constructor(private route:ActivatedRoute, private router:Router, private snack:MatSnackBar, private loginservice:LoginService, private reviewservice:ReviewService) { }
  rating={   
    rating:'',  
    review:'',  
@@ -19,7 +19,7 @@ export class RatingComponent implements OnInit {
      instituteId:''   
    }  
  };   
- userId;   
+ userId;    
   ngOnInit(): void {   
     this.rating.institute.instituteId=this.route.snapshot.params['instituteid'];   
     this.getUser();    
@@ -47,7 +47,8 @@ export class RatingComponent implements OnInit {
     this.router.navigate(['/user/enrolledcourse'])    
             
   }   
-      
+  
+  //onchange event 
   onChange(event){   
     let rate = event.value;  
     this.rating.rating=rate;   
